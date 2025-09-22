@@ -419,3 +419,74 @@ body { font-family: "Times New Roman", serif; }
 .cta-btn:hover {
     background-color: #c43d36;
 }
+
+.citizenship-programs {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.citizenship-programs h1 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: rgb(50, 145, 208);
+}
+
+.citizenship-programs h2 {
+    font-size: 1.25rem;
+    color: #666;
+    margin-bottom: 20px;
+    font-weight: normal;
+}
+
+.citizenship-programs hr {
+    border: none;
+    height: 1px;
+    background: #ddd;
+    margin: 20px 0;
+}
+
+/* Programs container - 3 in one row */
+.programs-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    margin-top: 40px;
+}
+
+.citizenship-programs .program {
+    flex: 1;
+    text-align: left;
+    padding: 20px;
+    border: 1px solid #eee;
+    border-radius: 8px;
+}
+
+.citizenship-programs .program h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.citizenship-programs .program p {
+    line-height: 1.6;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.citizenship-programs .program a {
+    color: #0066cc;
+    text-decoration: none;
+    font-weight: bold;
+    display: block;
+    text-align: center;
+    
+}
+
+/* Responsive: Stack on mobile */
+@media (max-width: 768px) {
+    .programs-container {
+        flex-direction: column;
+    }
+}
