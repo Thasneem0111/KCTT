@@ -26,7 +26,11 @@ body { font-family: "Times New Roman", serif; }
 .main-header {
   background: #fff;
   border-bottom: 1px solid #ddd;
+  position: sticky;   
+  top: 0;            
+  z-index: 1000;     
 }
+
 .header-inner {
   max-width: 1100px;
   margin: auto;
@@ -592,8 +596,8 @@ body { font-family: "Times New Roman", serif; }
 .services-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.4); /* dark overlay */
-  backdrop-filter: blur(4px); /* blur background */
+  background: rgba(0, 0, 0, 0.4); 
+  backdrop-filter: blur(4px); 
 }
 
 .services-container {
@@ -665,7 +669,7 @@ body { font-family: "Times New Roman", serif; }
   width: 60px;
   height: 60px;
   border-radius: 50%;
-  background: #7d1c24; /* dark red */
+  background: #7d1c24; 
   display: flex;
   align-items: center;
   justify-content: center;
@@ -943,7 +947,7 @@ body { font-family: "Times New Roman", serif; }
 
 .contact-info i {
   margin-right: 8px;
-  font-style: normal; /* Keep icons aligned with text */
+  font-style: normal;
 }
 
 /* Footer Bottom Section */
@@ -963,5 +967,5 @@ body { font-family: "Times New Roman", serif; }
 
 .footer ul li {
   margin-bottom: 8px;
-  text-align: justify;   /* 👈 Justify alignment */
+  text-align: justify;  
 }
