@@ -93,7 +93,7 @@ body { font-family: "Times New Roman", serif; }
   font-size: 48px;
   margin-bottom: 20px;
 }
-.cta-btn {
+.cta-btnh {
   display: inline-block;
   padding: 12px 24px;
   background: linear-gradient(90deg, #e8534a, #f06257);
@@ -485,6 +485,9 @@ body { font-family: "Times New Roman", serif; }
     text-align: center;
     
 }
+.citizenship-programs .program a:hover {
+    color: #004499;
+}
 
 /* Responsive: Stack on mobile */
 @media (max-width: 768px) {
@@ -492,3 +495,89 @@ body { font-family: "Times New Roman", serif; }
         flex-direction: column;
     }
 }
+
+.residency-programs {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.residency-programs h1 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: #41a2f6;
+}
+
+.residency-programs h2 {
+    font-size: 1.25rem;
+    color: #666;
+    margin-bottom: 20px;
+    font-weight: normal;
+}
+
+.residency-programs hr {
+    border: none;
+    height: 1px;
+    background: #ddd;
+    margin: 20px 0;
+}
+
+/* Program image styles */
+.program-image {
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.program-image img {
+    width: 60px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+
+/* Programs container - 2 in one row */
+.programs-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.residency-programs .program {
+    flex: 0 0 calc(50% - 15px); /* 2 items per row with gap */
+    text-align: left;
+    padding: 20px;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    box-sizing: border-box;
+}
+
+.residency-programs .program h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: #000;
+}
+
+.residency-programs .program p {
+    line-height: 1.5;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.residency-programs .program a:hover {
+    color: #004499;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .residency-programs .program {
+        flex: 0 0 100%; /* 1 item per row on mobile */
+    }
+}
+
