@@ -447,20 +447,22 @@ body { font-family: "Times New Roman", serif; }
     margin: 20px 0;
 }
 
-/* Programs container - 3 in one row */
+/* Programs container - 3 per row, wrap to next row */
 .programs-container {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
-    gap: 40px;
+    gap: 30px;
     margin-top: 40px;
 }
 
 .citizenship-programs .program {
-    flex: 1;
+    flex: 0 0 calc(33.333% - 20px); /* 3 items per row with gap */
     text-align: left;
     padding: 20px;
     border: 1px solid #eee;
     border-radius: 8px;
+    box-sizing: border-box;
 }
 
 .citizenship-programs .program h3 {
