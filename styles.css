@@ -1013,7 +1013,8 @@ body { font-family: "Times New Roman", serif; }
 }
 
 .investment-button {
-  display: inline-block;
+  display: block;
+  width: 85%;
   padding: 12px 30px;
   background: linear-gradient(to right, #e63946, #f56a79);
   color: #fff;
@@ -1025,6 +1026,92 @@ body { font-family: "Times New Roman", serif; }
 .investment-button:hover {
   background: linear-gradient(to right, #f56a79, #e63946);
   box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+
+
+.schedule-section {
+  padding: 60px 20px;
+  background: #fff;
+}
+
+.schedule-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.sub-title1 {
+  color: #e63946;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.schedule-content h2 {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 25px;
+  color: #111;
+}
+
+.schedule-list {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 30px;
+}
+
+.schedule-list li {
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+}
+
+.schedule-list i {
+  color: #e63946;
+  margin-right: 10px;
+  font-size: 18px;
+}
+
+.btn-primaryc {
+  display: block;
+  width: 60%;
+  background: linear-gradient(90deg, #e63946, #ff4f4f);
+  color: #fff;
+  padding: 14px 28px;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 14px;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+
+.btn-primaryc i {
+  margin-left: 8px;
+}
+
+.btn-primaryc:hover {
+  background: linear-gradient(90deg, #d62839, #ff3d3d);
+}
+
+.schedule-image img {
+  width: 100%;
+  border-radius: 6px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+@media (max-width: 900px) {
+  .schedule-container {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
 }
 
 
