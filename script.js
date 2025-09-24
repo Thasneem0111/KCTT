@@ -57,15 +57,20 @@ function startSlideshow() {
 
 navLinks.forEach(link => {
   link.addEventListener('click', (e) => {
-    e.preventDefault();
+    const href = link.getAttribute('href');
     const index = parseInt(link.getAttribute('data-index'), 10);
-    if (!isNaN(index)) {
+
+    // If the link is just "#" → control slideshow
+    if (href === "#" && !isNaN(index)) {
+      e.preventDefault(); // prevent jumping to top
       currentIndex = index;
       showSlide(currentIndex, true);
       startSlideshow();
     }
   });
 });
+
+
 
 window.addEventListener('DOMContentLoaded', () => {
   bgOne.style.backgroundImage = `url('${slides[0].image}')`;

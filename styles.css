@@ -207,11 +207,19 @@ body { font-family: "Times New Roman", serif; }
   transition: all 0.3s ease;
   box-shadow: 0 2px 6px rgba(0,0,0,0.05);
 }
+.help-item:hover{
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transform: translateY(-3px);
+  color: #007BFF;
+}
 
 .help-item .number {
   font-size: 1.8rem;
   font-weight: bold;
   color: #bbb;
+}
+.help-item .number:hover {
+  color: #007BFF;
 }
 
 .help-item i {
@@ -229,7 +237,7 @@ body { font-family: "Times New Roman", serif; }
 /* Hover effect */
 .help-item:hover i,
 .help-item:hover .text {
-  color: #007BFF; /* Blue */
+  color: #007BFF;
 }
 
 
