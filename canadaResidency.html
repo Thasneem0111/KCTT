@@ -34,7 +34,7 @@
           <li><a href="index.html" data-index="0">Home</a></li>
           <li><a href="citizenship.html" data-index="1">Citizenship By Investment</a></li>
           <li><a href="residencyInvestment.html" data-index="2">Residency By Investment</a></li>
-          <li><a href="#" data-index="3">Canada Permanent Residency</a></li>
+          <li><a href="canadaResidency.html" data-index="3" class="active">Canada Permanent Residency</a></li>
           <li><a href="legalService.html" data-index="4">Legal Services For Canadian Expats</a></li>
           <li><a href="realEstate.html" data-index="5">Real Estate Investment Advisory Services</a></li>
           <li><a href="otherService.html" data-index="6">Other Services</a></li>
@@ -66,7 +66,7 @@
           rate speaks to our expertise in navigating complex immigration
           processes.
         </p>
-        <a href="#" class="btn-apply">
+        <a href="contact.html" class="btn-apply">
           START YOUR APPLICATION <i class="fa-solid fa-arrow-right"></i>
         </a>
       </div>
@@ -167,6 +167,91 @@
     </div>
   </div>
 </section>
+
+<section class="benefits">
+  <div class="container">
+    <h2 class="section-title">Benefits of Canada Permanent Residency</h2>
+    <div class="underline"></div>
+
+    <div class="benefits-grid">
+      <div class="benefit-card">
+        <div class="icon"><i class="fa-solid fa-circle-check"></i></div>
+        <p>Live and work anywhere in Canada</p>
+      </div>
+
+      <div class="benefit-card">
+        <div class="icon"><i class="fa-solid fa-circle-check"></i></div>
+        <p>Access to universal healthcare</p>
+      </div>
+
+      <div class="benefit-card">
+        <div class="icon"><i class="fa-solid fa-circle-check"></i></div>
+        <p>Free public education for children</p>
+      </div>
+
+      <div class="benefit-card">
+        <div class="icon"><i class="fa-solid fa-circle-check"></i></div>
+        <p>Social benefits and protections</p>
+      </div>
+
+      <div class="benefit-card">
+        <div class="icon"><i class="fa-solid fa-circle-check"></i></div>
+        <p>Pathway to Canadian citizenship</p>
+      </div>
+
+      <div class="benefit-card">
+        <div class="icon"><i class="fa-solid fa-circle-check"></i></div>
+        <p>Sponsor family members</p>
+      </div>
+
+      <div class="benefit-card">
+        <div class="icon"><i class="fa-solid fa-circle-check"></i></div>
+        <p>Travel with Canadian passport</p>
+      </div>
+
+      <div class="benefit-card">
+        <div class="icon"><i class="fa-solid fa-circle-check"></i></div>
+        <p>Vote in Canadian elections</p>
+      </div>
+
+      <div class="benefit-card">
+        <div class="icon"><i class="fa-solid fa-circle-check"></i></div>
+        <p>Work in any province or territory</p>
+      </div>
+
+      <div class="benefit-card">
+        <div class="icon"><i class="fa-solid fa-circle-check"></i></div>
+        <p>Apply for Canadian citizenship after 3 years of residency</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="canada-pr">
+  <div class="canada-pr-container">
+    <!-- Left Side -->
+    <div class="canada-pr-left">
+      <div class="vertical-line"></div>
+      <div class="content">
+        <h5 class="sub-heading">LET US HELP YOU</h5>
+        <h2 class="main-heading">To know more about our Canada permanent residency services, please schedule a consultation with us.</h2>
+        <div class="red-line"></div>
+        <p>
+          KCTT assists international clients in obtaining residence and citizenship under the respective programs. Contact us to arrange an initial private consultation.
+        </p>        
+        <a href="contact.html" class="btn-apply">
+          SCHEDULE A CONSULTATION <i class="fa-solid fa-arrow-right"></i>
+        </a>
+      </div>
+    </div>
+
+    <!-- Right Side -->
+    <div class="canada-pr-right">
+      <img src="images/hand.jpg" alt="Canada City View with Flag" />
+    </div>
+  </div>
+</section>
+
 
 <section class="footer-section">
 
@@ -294,7 +379,7 @@ body { font-family: "Times New Roman", serif; }
   height: 2px;
   background: #e8534a;
   margin: auto;
-  width: 50%;
+  width: 100%;
 }
 
 .canada-pr {
@@ -340,7 +425,7 @@ body { font-family: "Times New Roman", serif; }
 .main-heading {
   font-family: "Times New Roman", serif;
   font-size: 28px;
-  font-weight: bold;
+  font-weight: normal;
   margin-bottom: 10px;
   color: #000;
 }
@@ -359,12 +444,14 @@ body { font-family: "Times New Roman", serif; }
 }
 
 .btn-apply {
-  display: inline-block;
+  display: block;
+  width: fit-content;
   background: red;
   color: #fff;
   padding: 12px 20px;
   border-radius: 4px;
-  font-weight: bold;
+  font-size: 12px;
+  font-weight: normal;
   text-decoration: none;
   transition: background 0.3s ease;
 }
@@ -390,6 +477,7 @@ body { font-family: "Times New Roman", serif; }
 
 
 .immigration-programs {
+  width: 100%;
   padding: 60px 20px;
   background: #fff;
   font-family: Arial, sans-serif;
@@ -541,6 +629,62 @@ body { font-family: "Times New Roman", serif; }
 .requirement-item p {  
   font-size: 0.7rem;
   padding-left: 1px;
+}
+
+.benefits {
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 3rem;
+  margin-bottom: 10px;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.underline {
+  width: 60px;
+  height: 3px;
+  background: red;
+  margin: 0 auto 40px auto;
+}
+
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+}
+
+.benefit-card {
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.benefit-card:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(254, 26, 26, 0.12);
+}
+
+.benefit-card .icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: #fdeaea;
+  color: red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto 15px auto;
+  font-size: 1.2rem;
+}
+
+.benefit-card p {
+  font-size: 0.95rem;
+  color: #333;
+  margin: 0;
 }
 
 
