@@ -31,14 +31,14 @@
       </a>
       <nav class="main-nav">
         <ul id="navList">
-          <li><a href="index.html" data-index="0">Home</a></li>
-          <li><a href="citizenship.html" data-index="1">Citizenship By Investment</a></li>
-          <li><a href="residencyInvestment.html" data-index="2">Residency By Investment</a></li>
-          <li><a href="canadaResidency.html" data-index="3" >Canada Permanent Residency</a></li>
-          <li><a href="legalService.html" data-index="4"class="active">Legal Services For Canadian Expats</a></li>
-          <li><a href="realEstate.html" data-index="5">Real Estate Investment Advisory Services</a></li>
-          <li><a href="otherService.html" data-index="6">Other Services</a></li>
-          <li><a href="contact.html" data-index="7">Contact Us</a></li>
+          <li><a href="/index.html" data-index="0">Home</a></li>
+          <li><a href="/citizenship.html" data-index="1">Citizenship By Investment</a></li>
+          <li><a href="/residencyInvestment.html" data-index="2">Residency By Investment</a></li>
+          <li><a href="/canadaResidency.html" data-index="3" >Canada Permanent Residency</a></li>
+          <li><a href="/legalService.html" data-index="4"class="active">Legal Services For Canadian Expats</a></li>
+          <li><a href="/realEstate.html" data-index="5">Real Estate Investment Advisory Services</a></li>
+          <li><a href="/otherService.html" data-index="6">Other Services</a></li>
+          <li><a href="/contact.html" data-index="7">Contact Us</a></li>
         </ul>
       </nav>
     </div>
@@ -123,7 +123,7 @@
       <div class="vertical-line"></div>
       <div class="content">
         <h5 class="sub-heading">LET US HELP YOU</h5>
-        <h2 class="main-heading">To know more about Notarization Services services, please schedule a consultation with us.</h2>
+        <h2 class="main-heading">To know more about Notarization Services, please schedule a consultation with us.</h2>
         <div class="red-line"></div>
         <p>
           KCTT assists international clients in obtaining residence and citizenship under the respective programs. Contact us to arrange an initial private consultation.
@@ -175,9 +175,9 @@
       <h3>Quick Links</h3>
       <ul>
         <li><a href="#">➜ Home</a></li>
-        <li><a href="#about">➜ About Us</a></li>
-        <li><a href="#service">➜ Services</a></li>
-        <li><a href="contact.html">➜ Contact</a></li>
+        <li><a href="/about.html">➜ About Us</a></li>
+        <li><a href="/otherService.html">➜ Services</a></li>
+        <li><a href="/contact.html">➜ Contact</a></li>
       </ul>
     </div>
 
@@ -628,7 +628,14 @@ body { font-family: "Times New Roman", serif; }
 }
 
 /* Paragraphs, Links, and List Items */
-.footer p,
+.footer p{
+  font-size: 14px;
+  line-height: 1.6;
+  color: #dcdcdc;
+  margin-bottom: 15px;
+  text-align: left;
+}
+
 .footer a,
 .footer li {
   font-size: 14px;
@@ -678,27 +685,6 @@ body { font-family: "Times New Roman", serif; }
 }
 
 </style>
-
-<!-- JavaScript -->
-<script>
-document.querySelectorAll(".toggle-features").forEach(link => {
-  link.addEventListener("click", function(e) {
-    e.preventDefault();
-    const card = this.closest(".program-card");
-    const extras = card.querySelectorAll(".extra-feature");
-
-    extras.forEach(f => f.classList.toggle("hidden"));
-
-    if (this.textContent.includes("+")) {
-      this.textContent = "Show Less";
-      extras.forEach(f => f.style.display = "list-item");
-    } else {
-      this.textContent = "+2 more features";
-      extras.forEach(f => f.style.display = "none");
-    }
-  });
-});
-</script>
 
 </body>
 </html>
