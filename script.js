@@ -1,6 +1,6 @@
 // Slides (8 options with images)
 const slides = [
-  { title: 'Citizenship By Investment', image: 'images/Citizenship-By-Investment.jpg' },
+  // { title: 'Citizenship By Investment', image: 'images/Citizenship-By-Investment.jpg' },
   { title: 'Citizenship By Investment', image: 'images/Citizenship-By-Investment.jpg' },
   { title: 'Residency By Investment', image: 'images/res.webp' },
   { title: 'Canada Permanent Residency', image: 'images/canada.jpg' },

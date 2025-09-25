@@ -39,7 +39,10 @@ body { font-family: "Times New Roman", serif; }
   justify-content: space-between;
   padding: 10px;
 }
-.logo-img { height: 50px; }
+.logo-img { 
+  height: 60px; 
+  width: auto;
+}
 .main-nav ul {
   list-style: none;
   display: flex;
@@ -65,11 +68,10 @@ body { font-family: "Times New Roman", serif; }
 /* Hero */
 .hero {
   position: relative;
-  height: 75vh;
+  height: 100vh;
   min-height: 500px;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  justify-content: left;
   text-align: center;
   color: #fff;
   overflow: hidden;
@@ -95,11 +97,16 @@ body { font-family: "Times New Roman", serif; }
 }
 #heroTitle {
   font-size: 48px;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
+  text-align: left;
+  margin-top: 100px;
+  margin-left: 30px;
 }
 .cta-btnh {
-  display: inline-block;
+  display: block;
   padding: 12px 24px;
+  width: 250px;
+  margin-left: 30px;
   background: linear-gradient(90deg, #e8534a, #f06257);
   color: #fff;
   text-decoration: none;
@@ -171,8 +178,9 @@ body { font-family: "Times New Roman", serif; }
 }
 
 .help-left h2 {
-  font-size: 2rem;
+  font-size: 1.5rem;
   margin-bottom: 1rem;
+  font-weight: normal;
 }
 
 .help-left p {
@@ -183,8 +191,9 @@ body { font-family: "Times New Roman", serif; }
 }
 
 .help-logo {
-  width: 200px;
+  width: 300px;
   margin-top: 1rem;
+  padding-left: 80px;
 }
 
 .help-right {
@@ -264,8 +273,8 @@ body { font-family: "Times New Roman", serif; }
 }
 
 .experience-left h2 {
-  font-size: 32px;
-  font-weight: bold;
+  font-size: 28px;
+  font-weight: normal;
   margin-bottom: 15px;
   border-bottom: 3px solid #c00;
   display: inline-block;
@@ -294,6 +303,7 @@ body { font-family: "Times New Roman", serif; }
 .strategy-mission h3 {
   font-size: 20px;
   margin-bottom: 5px;
+  font-weight: normal;
 }
 
 /* Right Side Circle */
@@ -394,9 +404,11 @@ body { font-family: "Times New Roman", serif; }
 }
 
 .text-section p {
-    font-size: 1rem;
+    font-size: 0.9rem;
     margin-bottom: 20px;
     color: #333;
+    text-align: justify;
+    line-height: 1.6;
 }
 
 .stats {
@@ -416,10 +428,12 @@ body { font-family: "Times New Roman", serif; }
 }
 
 .cta-btn {
+  
     display: block;
-    width: 40%;
+    width: 30%;
     padding: 10px;
-    font-size: 1rem;
+    margin-left: 370px;
+    font-size: 0.8rem;
     background-color: #e94a46;
     color: #fff;
     border: none;
@@ -432,6 +446,7 @@ body { font-family: "Times New Roman", serif; }
 
 .cta-btn:hover {
     background-color: #c43d36;
+    transform: translatey(-3px);
 }
 
 .citizenship-programs {
@@ -471,7 +486,7 @@ body { font-family: "Times New Roman", serif; }
 }
 
 .citizenship-programs .program {
-    flex: 0 0 calc(33.333% - 20px); /* 3 items per row with gap */
+    flex: 0 0 calc(50% - 15px); /* 2 items per row with gap */
     text-align: left;
     padding: 20px;
     border: 1px solid #eee;
@@ -479,8 +494,12 @@ body { font-family: "Times New Roman", serif; }
     box-sizing: border-box;
 }
 
+.citizenship-programs .program:hover {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transform: translateY(-3px);
+}
 .citizenship-programs .program h3 {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     margin-bottom: 15px;
     text-align: center;
 }
@@ -500,7 +519,7 @@ body { font-family: "Times New Roman", serif; }
     
 }
 .citizenship-programs .program a:hover {
-    color: #004499;
+    color: #be0d0d;
 }
 
 /* Responsive: Stack on mobile */
@@ -565,16 +584,21 @@ body { font-family: "Times New Roman", serif; }
 
 .residency-programs .program {
     flex: 0 0 calc(50% - 15px); /* 2 items per row with gap */
-    text-align: left;
+    text-align: center;
     padding: 20px;
     border: 1px solid #eee;
     border-radius: 8px;
     box-sizing: border-box;
 }
 
+.residency-programs .program:hover {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transform: translateY(-3px);
+}
 .residency-programs .program h3 {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     margin-bottom: 15px;
+    text-align: center;
     color: #000;
 }
 
@@ -582,10 +606,12 @@ body { font-family: "Times New Roman", serif; }
     line-height: 1.5;
     margin-bottom: 20px;
     color: #333;
+    text-align: center;
 }
 
 .residency-programs .program a:hover {
     color: #004499;
+    
 }
 
 /* Responsive design */
@@ -627,7 +653,7 @@ body { font-family: "Times New Roman", serif; }
 }
 
 .services-left h2 {
-  font-size: 32px;
+  font-size: 28px;
   margin-bottom: 20px;
   border-bottom: 2px solid #fff;
   display: inline-block;
@@ -636,7 +662,7 @@ body { font-family: "Times New Roman", serif; }
 }
 
 .services-left p {
-  font-size: 16px;
+  font-size: 14px;
   line-height: 1.6;
   margin-bottom: 25px;
 }
@@ -713,7 +739,105 @@ body { font-family: "Times New Roman", serif; }
   }
 }
 
+/* Section Styling */
+.our-best {
+  text-align: center;
+  padding: 60px 20px;
+  background: #fff;
+}
 
+.section-title {
+  font-size: 32px;
+  font-weight: 600;
+  color: #1a4e8a; /* Blue heading */
+  margin-bottom: 10px;
+  position: relative;
+  display: inline-block;
+  text-align: center;
+}
+
+.section-title::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: #d32f2f; /* Red underline */
+  margin: 10px auto 0; /* Centers underline */
+}
+
+.section-subtitle {
+  font-size: 16px;
+  color: #555;
+  margin: 0 auto 40px;
+  max-width: 700px; /* keeps paragraph centered */
+  text-align: center;
+}
+
+/* Cards Container */
+.best-cards {
+  display: flex;
+  justify-content: center; /* center all cards */
+  align-items: stretch;
+  gap: 25px;
+  flex-wrap: nowrap; /* all in one row */
+}
+
+/* Individual Card */
+.best-card {
+  background: #fff;
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  width: 320px;
+  transition: transform 0.3s ease;
+  text-align: left;
+  flex: 0 0 auto; /* prevents shrinking into column */
+}
+
+.best-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 20px rgba(249, 0, 0, 0.15);
+}
+
+.best-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+.best-card img:hover {
+  transform: scale(1.05);
+  transition: transform 0.3s ease;
+}
+
+.card-content {
+  padding: 20px;
+}
+
+.card-tag {
+  color: #d32f2f;
+  font-size: 14px;
+  font-weight: bold;
+
+}
+.card-tag:hover {
+  color: rgb(13, 107, 238);
+}
+
+.card-title {
+  font-size: 18px;
+  margin: 10px 0;
+  color: #333;
+}
+
+.card-title:hover {
+  color: #2285d6;
+}
+
+.card-text {
+  font-size: 14px;
+  color: #555;
+  line-height: 1.6;
+}
 .visa-assistance {
   background-color: #f8f9fa;
   padding: 60px 20px;
@@ -870,6 +994,7 @@ body { font-family: "Times New Roman", serif; }
   background: linear-gradient(90deg, #e63946, #ff4f4f);
   color: #fff;
   padding: 14px 28px;
+  margin-left: 180px;
   border-radius: 4px;
   font-weight: 600;
   font-size: 14px;
@@ -883,6 +1008,7 @@ body { font-family: "Times New Roman", serif; }
 
 .btn-primary:hover {
   background: linear-gradient(90deg, #d62839, #ff3d3d);
+  transform: translateY(-3px);
 }
 
 .citizenship-image img {
@@ -961,14 +1087,14 @@ body { font-family: "Times New Roman", serif; }
 
 .marker img {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 50%;
+  height: 100;
+  object-fit:cover;
+  border-radius: 20%;
 }
 
 
 /* Position markers */
-.marker.uae { top: 33%; left: 50%; }
+.marker.uae { top: 38%; left: 55%; }
 .marker.qatar { top: 44%; left: 57%; }
 
 /* Airplane */
@@ -1146,12 +1272,19 @@ body { font-family: "Times New Roman", serif; }
   font-size: 18px;
   font-weight: 600;
   margin-bottom: 15px;
-  color: #fff;
+  color: #e9eccb;
   text-align: left;
 }
 
 /* Paragraphs, Links, and List Items */
-.footer p,
+.footer p{
+  font-size: 14px;
+  line-height: 1.6;
+  color: #dcdcdc;
+  margin-bottom: 15px;
+  text-align: left;
+}
+
 .footer a,
 .footer li {
   font-size: 14px;
@@ -1164,7 +1297,7 @@ body { font-family: "Times New Roman", serif; }
 
 /* Hover effect for links */
 .footer a:hover {
-  color: #ffffff;
+  color: #a12424;
 }
 
 /* Contact Info Styling */

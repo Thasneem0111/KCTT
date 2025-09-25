@@ -210,7 +210,7 @@ body { font-family: "Times New Roman", serif; }
 
 .custom-select select {
   appearance: none;
-  background: #fff url("data:image/svg+xml;utf8,<svg fill='black' height='20' width='20' xmlns='http://www.w3.org/2000/svg'><polygon points='0,0 20,0 10,10'/></svg>") no-repeat right 10px center;
+  background: #fff url("images/contact.jpg") no-repeat right 10px center;
   background-size: 15px;
   cursor: pointer;
 }
