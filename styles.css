@@ -684,7 +684,9 @@ body { font-family: "Times New Roman", serif; }
 }
 
 .btn-readmore:hover {
-  background: #f5f5f5;
+  background: #000000;
+  color: #fff;
+  transform: translateY(-3px);
 }
 
 /* Right side */
@@ -1149,7 +1151,7 @@ body { font-family: "Times New Roman", serif; }
 
 .investment-button {
   display: block;
-  width: 85%;
+  width: fit-content;
   padding: 12px 30px;
   background: linear-gradient(to right, #e63946, #f56a79);
   color: #fff;
@@ -1161,6 +1163,7 @@ body { font-family: "Times New Roman", serif; }
 .investment-button:hover {
   background: linear-gradient(to right, #f56a79, #e63946);
   box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  transform: translateY(-3px);
 }
 
 
@@ -1217,7 +1220,7 @@ body { font-family: "Times New Roman", serif; }
 
 .btn-primaryc {
   display: block;
-  width: 60%;
+  width: fit-content;
   background: linear-gradient(90deg, #e63946, #ff4f4f);
   color: #fff;
   padding: 14px 28px;
@@ -1234,6 +1237,7 @@ body { font-family: "Times New Roman", serif; }
 
 .btn-primaryc:hover {
   background: linear-gradient(90deg, #d62839, #ff3d3d);
+  transform: translateY(-3px);
 }
 
 .schedule-image img {
