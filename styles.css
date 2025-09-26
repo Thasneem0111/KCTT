@@ -178,7 +178,7 @@ body { font-family: "Times New Roman", serif; }
 }
 
 .help-left h2 {
-  font-size: 1.5rem;
+  font-size: 2rem;
   margin-bottom: 1rem;
   font-weight: normal;
 }
@@ -495,8 +495,9 @@ body { font-family: "Times New Roman", serif; }
 }
 
 .citizenship-programs .program:hover {
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    transform: translateY(-3px);
+    box-shadow: 0 4px 42px rgba(0, 0, 0, 0.1);
+    transform: translateY(-5px);
+    transition: all 0.3s ease;    
 }
 .citizenship-programs .program h3 {
     font-size: 1.2rem;
@@ -592,8 +593,9 @@ body { font-family: "Times New Roman", serif; }
 }
 
 .residency-programs .program:hover {
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    transform: translateY(-3px);
+    box-shadow: 0 4px 42px rgba(0, 0, 0, 0.1);
+    transform: translateY(-5px);
+    transition: all 0.3s ease; 
 }
 .residency-programs .program h3 {
     font-size: 1.2rem;
@@ -1335,4 +1337,18 @@ body { font-family: "Times New Roman", serif; }
 .footer ul li {
   margin-bottom: 8px;
   text-align: justify;  
+}
+
+/* Initial state: hidden and transformed */
+.reveal-section {
+  opacity: 0;
+  transform: translateY(60px) scale(0.98);
+  transition: opacity 0.8s cubic-bezier(.4,0,.2,1), transform 0.8s cubic-bezier(.4,0,.2,1);
+  will-change: opacity, transform;
+}
+
+/* When visible: show and reset transform */
+.reveal-section.visible {
+  opacity: 1;
+  transform: none;
 }

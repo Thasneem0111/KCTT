@@ -79,3 +79,22 @@ window.addEventListener('DOMContentLoaded', () => {
   setActiveNav(0);
   startSlideshow();
 });
+
+// Reveal sections on scroll
+document.addEventListener("DOMContentLoaded", function () {
+  const sections = document.querySelectorAll('.reveal-section');
+  const observer = new IntersectionObserver(
+    (entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target); // Animate only once
+        }
+      });
+    },
+    {
+      threshold: 0.15 // Trigger when 15% of the section is visible
+    }
+  );
+  sections.forEach(section => observer.observe(section));
+});
