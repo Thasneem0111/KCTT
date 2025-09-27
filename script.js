@@ -70,7 +70,13 @@ navLinks.forEach(link => {
   });
 });
 
-
+document.addEventListener('DOMContentLoaded', function() {
+  const navToggle = document.querySelector('.nav-toggle');
+  const mainNav = document.querySelector('.main-nav');
+  navToggle.addEventListener('click', function() {
+    mainNav.classList.toggle('active');
+  });
+});
 
 window.addEventListener('DOMContentLoaded', () => {
   bgOne.style.backgroundImage = `url('${slides[0].image}')`;
@@ -79,6 +85,44 @@ window.addEventListener('DOMContentLoaded', () => {
   setActiveNav(0);
   startSlideshow();
 });
+
+// Hero slides data
+const heroSlides = [
+  { title: 'Citizenship By Investment', image: 'images/Citizenship-By-Investment.jpg' },
+  { title: 'Residency By Investment', image: 'images/res.webp' },
+  { title: 'Canada Permanent Residency', image: 'images/canada.jpg' },
+  { title: 'Legal Services For Canadian Expats', image: 'images/legal.jpg' },
+  { title: 'Real Estate Investment Advisory Services', image: 'images/realestate.webp' },
+  { title: 'Other Services', image: 'images/services.jpg' }
+];
+
+let currentSlide = 0;
+const bgLayers = document.querySelectorAll('.bg-layer');
+
+function showSlide(index) {
+  // Update title
+  heroTitle.textContent = heroSlides[index].title;
+  // Update background images
+  bgLayers.forEach((layer, i) => {
+    if (i === 0) {
+      layer.style.backgroundImage = `url('${heroSlides[index].image}')`;
+      layer.classList.add('visible');
+    } else {
+      layer.classList.remove('visible');
+    }
+  });
+}
+
+function nextSlide() {
+  currentSlide = (currentSlide + 1) % heroSlides.length;
+  showSlide(currentSlide);
+}
+
+// Initialize first slide
+showSlide(currentSlide);
+
+// Auto-slide every 5 seconds
+setInterval(nextSlide, 5000);
 
 // Reveal sections on scroll
 document.addEventListener("DOMContentLoaded", function () {
