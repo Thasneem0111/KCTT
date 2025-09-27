@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
     <title>Canada Permanent Residency</title>
     <link rel="stylesheet" href="index.html">
     <link rel="stylesheet" href="contact.html">
@@ -31,16 +31,17 @@
       </a>
       <nav class="main-nav">
         <ul id="navList">
-          <li><a href="index.html" data-index="0">Home</a></li>
-          <li><a href="citizenship.html" data-index="1">Citizenship By Investment</a></li>
-          <li><a href="residencyInvestment.html" data-index="2">Residency By Investment</a></li>
-          <li><a href="canadaResidency.html" data-index="3" class="active">Canada Permanent Residency</a></li>
-          <li><a href="legalService.html" data-index="4">Legal Services For Canadian Expats</a></li>
-          <li><a href="realEstate.html" data-index="5">Real Estate Investment Advisory Services</a></li>
-          <li><a href="otherService.html" data-index="6">Other Services</a></li>
-          <li><a href="contact.html" data-index="7">Contact Us</a></li>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="citizenship.html">Citizenship By Investment</a></li>
+          <li><a href="residencyInvestment.html">Residency By Investment</a></li>
+          <li><a href="canadaResidency.html" class="active" style="width:100%">Canada Permanent Residency</a></li>
+          <li><a href="legalService.html">Legal Services For Canadian Expats</a></li>
+          <li><a href="realEstate.html">Real Estate Investment Advisory Services</a></li>
+          <li><a href="otherService.html">Other Services</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
         </ul>
       </nav>
+      <button class="nav-toggle" aria-label="Open navigation"><i class="fa fa-bars"></i></button>
     </div>
   </header>
 
@@ -53,6 +54,7 @@
         <h5 class="sub-heading">CANADA PERMANENT RESIDENCY</h5>
         <h2 class="main-heading">Your Pathway to Canadian Permanent Residency</h2>
         <div class="red-line"></div>
+        <img src="images/canCity.jpg" alt="Citizenship program flags" class="mobile-inline-hero">
         <p>
           Canada offers multiple pathways to permanent residency, each designed
           to attract skilled workers, entrepreneurs, students, and families. Our
@@ -296,7 +298,7 @@
 
   <!-- Footer Bottom -->
   <div class="footer-bottom">
-    Developed by ROI
+    © 2025 All Rights Reserved | Developed by ROI
   </div>
 </footer>
    
@@ -371,15 +373,19 @@ body { font-family: "Times New Roman", serif; }
   color: #333;
   position: relative;
 }
-.main-nav a.active::after {
-  content: "";
-  position: absolute;
-  bottom: -4px;
-  left: 0; right: 0;
-  height: 2px;
-  background: #e8534a;
-  margin: auto;
-  width: 100%;
+.main-nav a.active { color:#e00000; font-weight:600; }
+/* Remove previous underline effect */
+.main-nav a.active::after { content:none !important; display:none !important; }
+
+/* Mobile nav (mirroring contact.html intent) */
+.nav-toggle { display:none; background:none; border:none; font-size:2rem; cursor:pointer; }
+@media (max-width:768px){
+  .nav-toggle { display:block; }
+  .main-nav ul{ display:none; flex-direction:column; background:#fff; position:absolute; top:60px; right:10px; width:78%; max-width:320px; border:1px solid #e5e7eb; border-radius:10px; box-shadow:0 10px 28px -4px rgba(0,0,0,0.18),0 4px 12px -2px rgba(0,0,0,0.08); padding:8px 0; }
+  .main-nav.active ul{ display:flex; }
+  .main-nav ul li{ width:100%; padding:10px 18px; }
+  .main-nav ul li + li{ border-top:1px solid #f1f2f4; }
+  .main-nav ul li a{ display:block; width:100%; font-size:0.9rem; color:#222; text-decoration:none; }
 }
 
 .canada-pr {
@@ -475,12 +481,38 @@ body { font-family: "Times New Roman", serif; }
   border-radius: 6px;
 }
 
+.mobile-inline-hero { display:none; }
+
+@media (max-width: 768px) {
+  .canada-pr-container {
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+    gap: 28px;
+  }
+  .canada-pr-right, .canada-pr-left { width: 100%; }
+  .canada-pr-right { order: 1; }
+  .canada-pr-left { order: 2; }
+  .canada-pr-right img { width: 100%; height: auto; display: block; }
+  /* Simplify left block styling on mobile */
+  .canada-pr-left { display: block; }
+  .vertical-line { display: none; }
+  .main-heading { font-size: 1.35rem; line-height: 1.3; }
+  .btn-apply { font-size: 0.75rem; }
+  /* Show inline hero image only on mobile for FIRST canada-pr section */
+  .mobile-inline-hero { display:block; width:100%; border-radius:10px; margin:12px 0 14px; }
+  .canada-pr:first-of-type .canada-pr-right { display:none; }
+  /* Hide right image in consultation section on mobile so only inline image shows */
+  .canada-pr--consult .canada-pr-right { display:none; }
+}
+
 
 .immigration-programs {
   width: 100%;
   padding: 60px 20px;
   background: #fff;
   font-family: Arial, sans-serif;
+  
 }
 
 .section-title {
@@ -554,6 +586,12 @@ body { font-family: "Times New Roman", serif; }
   line-height: 1.5;
   color: #555;
   margin: 0;
+}
+
+/* Mobile adjustments */
+@media (max-width:768px){
+  /* Reduce ONLY the Immigration Programs main heading on mobile */
+  .immigration-programs .section-title { font-size:1.8rem; }
 }
 
 
@@ -687,6 +725,13 @@ body { font-family: "Times New Roman", serif; }
   margin: 0;
 }
 
+/* Mobile adjustments for Benefits section */
+@media (max-width:768px){
+  .benefits .section-title { font-size:1.6rem; }
+  .benefits-grid { grid-template-columns:repeat(2, 1fr); }
+  .benefit-card:hover { transform:none; box-shadow:#000}
+}
+
 
 .footer {
   background: url("images/footer.jpg") center/cover no-repeat;
@@ -775,6 +820,15 @@ body { font-family: "Times New Roman", serif; }
 
 <!-- JavaScript -->
 <script>
+// Mobile nav toggle (mirrors contact.html behavior)
+document.addEventListener('DOMContentLoaded', function(){
+  const navToggle = document.querySelector('.nav-toggle');
+  const mainNav = document.querySelector('.main-nav');
+  if(navToggle && mainNav){
+    navToggle.addEventListener('click', ()=> mainNav.classList.toggle('active'));
+  }
+});
+// Existing feature toggle code
 document.querySelectorAll(".toggle-features").forEach(link => {
   link.addEventListener("click", function(e) {
     e.preventDefault();

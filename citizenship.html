@@ -2,14 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
     <title>Citizenship By Investment</title>
-    <link rel="stylesheet" href="index.html">
-    <link rel="stylesheet" href="contact.html">
-    <link rel="stylesheet" href="saintKitts.html">
+    <link rel="stylesheet" href="styles.css">
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
-
+    <script src="script.js" defer></script>
 </head>
 <body>
 
@@ -17,8 +15,7 @@
   <div class="top-bar">
     <div class="top-bar-inner">
       <a class="call-link" href="tel:+97455323174">
-        <svg class="phone-icon" viewBox="0 0 24 24" width="18" height="18">
-           </svg>
+        <svg class="phone-icon" viewBox="0 0 24 24" width="18" height="18"></svg>
         <span>Call us at: <strong>+974 5532 3174</strong></span>
       </a>
     </div>
@@ -27,7 +24,7 @@
   <!-- Header with Logo and Menu -->
   <header class="main-header">
     <div class="header-inner">
-      <a href="#" class="logo-link">
+      <a href="index.html" class="logo-link">
         <img src="images/logo.jpeg" alt="Company logo" class="logo-img">
       </a>
       <nav class="main-nav">
@@ -42,6 +39,7 @@
           <li><a href="contact.html" data-index="7">Contact Us</a></li>
         </ul>
       </nav>
+      <button class="nav-toggle" aria-label="Open navigation"><i class="fa fa-bars"></i></button>
     </div>
   </header>
 
@@ -52,8 +50,10 @@
       <div class="vertical-line"></div>
       <div class="content">
         <h5 class="sub-heading">CITIZENSHIP BY INVESTMENT</h5>
-        <h2 class="main-heading">Global Citizenship Through Strategic Investment</h2>
-        <div class="red-line"></div>
+    <h2 class="main-heading">Global Citizenship Through Strategic Investment</h2>
+    <div class="red-line"></div>
+  <!-- Mobile inline image (hidden on desktop) -->
+  <img src="images/flags.jpg" alt="Citizenship program flags" class="mobile-inline-hero">
         <p>
           Secure your family’s future with citizenship in some of the world's most desirable 
           countries. Our expert team guides you through every step of the investment process, 
@@ -77,7 +77,7 @@
 <section class="citizenship-programs">
     <h1>Citizenship by Investment Programs</h1>
     <div class="red-line1"></div>
-    <hr>
+   
     
     <div class="programs-container">
         <div class="program">
@@ -133,30 +133,50 @@
     <div class="residency-items">
       <div class="residency-item">
         <h2>Citizenship by Investment Overview</h2>
-        
-        <p>Citizenship by investment programs offer you the opportunity to legally acquire 
-        a new citizenship quickly and simply, without onerous, typical visa and passport 
-        application processes.</p>
+        <p>Citizenship by investment programs offer you the opportunity to legally acquire a new citizenship quickly and simply, without onerous, typical visa and passport application processes.</p>
       </div>
       <div class="residency-item">
         <h2>Why Citizenship by Investment?</h2>
-        
-        <p>In an unsettled, ever-changing world, acquiring an alternative citizenship is a 
-            wise decision and an investment for the future.</p>
+        <p>In an unsettled, ever-changing world, acquiring an alternative citizenship is a wise decision and an investment for the future.</p>
       </div>
       <div class="residency-item">
         <h2>Important Points</h2>
-        
-        <p>Citizenship is the most privileged form of nationality, a broader term that is 
-            used in international law to denote all persons whom a state is entitled to protect.</p>
+        <p>Citizenship is the most privileged form of nationality, a broader term that is used in international law to denote all persons whom a state is entitled to protect.</p>
       </div>
     </div>
   </div>
 </section>
 
-<section class="canada-pr">
+<section class="canada-pr canada-pr--consult">
   <div class="canada-pr-container">
     <!-- Left Side -->
+    <div class="canada-pr-left">
+      <div class="vertical-line"></div>
+      <div class="content">
+        <h5 class="sub-heading">LET US HELP YOU</h5>
+    <h2 class="main-heading">To know more about our citizenship by investment services please schedule a consultation with us.</h2>
+    <div class="red-line"></div>
+  <!-- Mobile inline image (hidden on desktop) -->
+  <img src="images/hand.jpg" alt="Citizenship program flags" class="mobile-inline-hero">
+        <p>
+          KCTT assists international clients in obtaining residence and citizenship under the respective programs. Contact us to arrange an initial private consultation.
+        </p>
+        <a href="contact.html" class="btn-apply">
+          SCHEDULE A CONSULTATION <i class="fa-solid fa-arrow-right"></i>
+        </a>
+      </div>
+    </div>
+
+    <!-- Right Side -->
+    <div class="canada-pr-right">
+      <img src="images/hand.jpg" alt="Canada City View with Flag" />
+    </div>
+  </div>
+</section>
+
+<!-- <section class="canada-pr">
+  <div class="canada-pr-container">
+        
     <div class="canada-pr-left">
       <div class="vertical-line"></div>
       <div class="content">
@@ -172,12 +192,12 @@
       </div>
     </div>
 
-    <!-- Right Side -->
+    
     <div class="canada-pr-right">
       <img src="images/hand.jpg" alt="Canada City View with Flag" />
     </div>
   </div>
-</section>
+</section> -->
 
 
 <section class="footer-section">
@@ -252,6 +272,11 @@ body { font-family: "Times New Roman", serif; }
 .top-bar {
   background: #f5f7f9;
   padding: 6px 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1400;
 }
 .top-bar-inner {
   max-width: 1100px;
@@ -273,11 +298,14 @@ body { font-family: "Times New Roman", serif; }
 .main-header {
   background: #fff;
   border-bottom: 1px solid #ddd;
-  position: sticky;   
-  top: 0;            
-  z-index: 1000;     
+  position: fixed;
+  top: 0; /* will be dynamically shifted below top bar */
+  left: 0;
+  width: 100%;
+  z-index: 1300;
+  transition: box-shadow .25s ease, background .25s ease;
 }
-
+.main-header.scrolled { box-shadow: 0 4px 12px -2px rgba(0,0,0,0.12); }
 .header-inner {
   max-width: 1100px;
   margin: auto;
@@ -287,11 +315,8 @@ body { font-family: "Times New Roman", serif; }
   padding: 10px;
 }
 .logo-img { height: 50px; }
-.main-nav ul {
-  list-style: none;
-  display: flex;
-  gap: 20px;
-}
+/* Removed inline .main-nav ul block to rely on shared stylesheet for responsive behavior */
+.main-nav ul { list-style: none; }
 .main-nav a {
   font-size: 14px; /* reduced */
   text-decoration: none;
@@ -299,15 +324,9 @@ body { font-family: "Times New Roman", serif; }
   position: relative;
 }
 .main-nav a.active::after {
-  content: "";
-  position: absolute;
-  bottom: -4px;
-  left: 0; right: 0;
-  height: 2px;
-  background: #e8534a;
-  margin: auto;
-  width: 100%;
+  content: none !important; /* remove underline */
 }
+.main-nav a.active { color:#e00000; font-weight:600; }
 
 .canada-pr {
   padding: 50px 10%;
@@ -365,9 +384,9 @@ body { font-family: "Times New Roman", serif; }
 }
 .red-line1 {
   width: 100px;
-  height: 2.5px;
+  height: 2px;
   background: red;
-  margin: 10px 0;
+  margin: 15px 0;
   margin-left: 500px;
 }
 
@@ -409,6 +428,9 @@ body { font-family: "Times New Roman", serif; }
   border-radius: 6px;
 }
 
+/* Hidden duplicate image used only for mobile inline placement */
+.mobile-inline-hero { display:none; }
+
 
 .immigration-programs {
   width: 100%;
@@ -435,7 +457,6 @@ body { font-family: "Times New Roman", serif; }
 .residency-planning {
   background: linear-gradient(to right, #9b2e5b, #2b5397); /* Gradient background */
   padding: 50px 0;
-  font-family: 'Times New Roman', Times, serif;
 }
 
 .container {
@@ -449,7 +470,6 @@ h1 {
   font-size: 1.5rem;
   margin-bottom: 30px;
   text-align: left;
-  font-family: times new roman;
   font-weight: normal;
 }
 
@@ -483,7 +503,61 @@ hr {
 
 p {
   color: #ffffff;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin-top: 0;
+  text-align: left;
+  font-weight: normal;
+}
+
+
+/* Constrain width of planning text blocks for readability */
+.residency-planning .residency-item p {
+  max-width: 430px;
+}
+
+/* Extra spacing right below the red line before the columns */
+.residency-planning .red-line { margin: 15px 0 35px; }
+
+/* Mobile: stack the three items vertically */
+@media (max-width: 768px) {
+  .residency-items { flex-direction: column; align-items: flex-start; }
+  .residency-planning .residency-item p { max-width: 100%; }
+}
+
+/* Mobile: force red line immediately under heading with clear spacing */
+@media (max-width: 768px) {
+  .residency-planning h1 { margin-bottom: 10px; }
+  .residency-planning .red-line { margin: 0 0 24px; display:block; }
+  .residency-planning .red-line1 { margin-left: 0 0 10px; display:block; }
+  .residency-planning .residency-items { margin-top: 0; }
+}
+
+.residency-item {
+  flex: 1;
+  text-align: center;
+}
+
+h2 {
+  color: #ffffff;
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  text-align: left;
+  font-weight: normal;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+hr {
+  width: 80px;
+  height: 3px;
+  background: red;
+  margin: 0 auto 40px;
+  
+}
+
+p {
+  color: #ffffff;
+  font-size: 0.9rem; /* restored original size */
   line-height: 1.5;
   margin-top: 0;
   text-align: left;
@@ -746,10 +820,64 @@ p {
   text-align: justify;  
 }
 
+/* Nav responsiveness handled in shared styles.css; page keeps minimal list reset only. */
+
+/* Mobile re-order: show image/right section first, then text/left section for canada-pr blocks */
+@media (max-width: 768px) {
+  .canada-pr-container {
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+    gap: 28px;
+  }
+  .canada-pr-right, .canada-pr-left { width: 100%; }
+  .canada-pr-right { order: 1; }
+  .canada-pr-left { order: 2; }
+  .canada-pr-right img { width: 100%; height: auto; display: block; }
+  /* Simplify left block styling on mobile */
+  .canada-pr-left { display: block; }
+  .vertical-line { display: none; }
+  .main-heading { font-size: 1.35rem; line-height: 1.3; }
+  .btn-apply { font-size: 0.75rem; }
+  /* Show inline hero image only on mobile for FIRST canada-pr section */
+  .mobile-inline-hero { display:block; width:100%; border-radius:10px; margin:12px 0 14px; }
+  .canada-pr:first-of-type .canada-pr-right { display:none; }
+  /* Hide right image in consultation section on mobile so only inline image shows */
+  .canada-pr--consult .canada-pr-right { display:none; }
+}
+
+/* Mobile-specific alignment for residency planning items */
+@media (max-width: 768px) {
+  .residency-planning .residency-item { text-align: left; }
+  .residency-planning .residency-item h2,
+  .residency-planning .residency-item p { text-align: left; }
+}
+
 </style>
 
 <!-- JavaScript -->
 <script>
+// Keep top bar and header always visible; adjust layout spacing
+(function(){
+  function adjustHeaderOffset(){
+    const topBar = document.querySelector('.top-bar');
+    const header = document.querySelector('.main-header');
+    if(!topBar || !header) return;
+    const topHeight = topBar.offsetHeight;
+    header.style.top = topHeight + 'px';
+    // Add padding so content not hidden
+    document.body.style.paddingTop = (topHeight + header.offsetHeight) + 'px';
+  }
+  window.addEventListener('load', adjustHeaderOffset);
+  window.addEventListener('resize', adjustHeaderOffset);
+  window.addEventListener('orientationchange', adjustHeaderOffset);
+  window.addEventListener('scroll', ()=>{
+    const header = document.querySelector('.main-header');
+    if(!header) return;
+    if(window.scrollY > 10){ header.classList.add('scrolled'); } else { header.classList.remove('scrolled'); }
+  });
+})();
+
 document.querySelectorAll(".toggle-features").forEach(link => {
   link.addEventListener("click", function(e) {
     e.preventDefault();
@@ -768,6 +896,8 @@ document.querySelectorAll(".toggle-features").forEach(link => {
   });
 });
 </script>
+
+<!-- Nav toggle handled globally in script.js -->
 
 </body>
 </html>

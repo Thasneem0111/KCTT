@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
     <title>Real Estate</title>
 </head>
 <body>
@@ -36,6 +36,7 @@
           <li><a href="contact.html">Contact Us</a></li>
         </ul>
       </nav>
+      <button class="nav-toggle" aria-label="Open navigation" aria-expanded="false"><i class="fa fa-bars"></i></button>
     </div>
   </header>
 
@@ -48,6 +49,8 @@
         <h5 class="sub-heading">REAL ESTATE INVESTMENT ADVISORY SERVICES</h5>
         <h2 class="main-heading">International Real Eestate Investment</h2>
         <div class="red-line"></div>
+        <!-- Mobile inline image (hidden on desktop) -->
+        <img src="images/investment.webp" alt="International real estate" class="mobile-inline-hero">
         <p>
           KCTT Real Estate is the world’s leading agency specializing in premium properties 
           and citizenship by investment programs. We provide comprehensive advisory services 
@@ -82,6 +85,8 @@
         <h5 class="sub-heading">LET US HELP YOU</h5>
         <h2 class="main-heading">To know more about our real estate services, please schedule a consultation with us.</h2>
         <div class="red-line"></div>
+        <!-- Mobile inline image (hidden on desktop) -->
+        <img src="images/consultant.jpg" alt="Consultation support" class="mobile-inline-hero">
         <p>
           KCTT assists international clients in obtaining residence and citizenship under the respective programs. Contact us to arrange an initial private consultation.
         </p>        
@@ -221,14 +226,33 @@ body { font-family: "Times New Roman", serif; }
   position: relative;
 }
 .main-nav a.active::after {
-  content: "";
-  position: absolute;
-  bottom: -4px;
-  left: 0; right: 0;
-  height: 2px;
-  background: #e8534a;
-  margin: auto;
-  width: 100%;
+  content:none !important;
+}
+.main-nav a.active { color:#e00000; font-weight:600; }
+
+/* Mobile nav styles */
+.nav-toggle { display:none; background:none; border:none; font-size:2rem; cursor:pointer; }
+@media (max-width:768px){
+  .nav-toggle { display:block; color:#222; }
+  .main-nav ul{ display:none; flex-direction:column; background:#fff; position:absolute; top:60px; right:10px; width:78%; max-width:320px; border:1px solid #e5e7eb; border-radius:10px; box-shadow:0 10px 28px -4px rgba(0,0,0,0.18),0 4px 12px -2px rgba(0,0,0,0.08); padding:8px 0; z-index:999; }
+  .main-nav.active ul{ display:flex; }
+  .main-nav ul li{ width:100%; padding:10px 18px; }
+  .main-nav ul li + li{ border-top:1px solid #f1f2f4; }
+  .main-nav ul li a{ display:block; width:100%; font-size:0.9rem; color:#222; }
+}
+
+/* Inline hero hidden by default (shown on mobile) */
+.mobile-inline-hero { display:none; width:100%; border-radius:10px; margin:12px 0 14px; }
+
+/* Mobile layout for real-pr (image below red line) */
+@media (max-width:768px){
+  .real-pr-container { flex-direction:column; flex-wrap:nowrap; align-items:center; gap:28px; }
+  .real-pr-left { width:100%; display:block; }
+  .real-pr-right { display:none !important; }
+  .vertical-line { display:none; }
+  .real-pr .main-heading { font-size:1.35rem; line-height:1.3; }
+  .btn-apply { font-size:0.75rem; }
+  .mobile-inline-hero { display:block; }
 }
 
 
@@ -415,3 +439,17 @@ body { font-family: "Times New Roman", serif; }
 
 
 </style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<script>
+document.addEventListener('DOMContentLoaded', function(){
+  const toggle = document.querySelector('.nav-toggle');
+  const nav = document.querySelector('.main-nav');
+  if(toggle && nav){
+    toggle.addEventListener('click', ()=>{
+      nav.classList.toggle('active');
+      const expanded = toggle.getAttribute('aria-expanded') === 'true';
+      toggle.setAttribute('aria-expanded', (!expanded).toString());
+    });
+  }
+});
+</script>

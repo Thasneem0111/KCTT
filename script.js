@@ -73,17 +73,72 @@ navLinks.forEach(link => {
 document.addEventListener('DOMContentLoaded', function() {
   const navToggle = document.querySelector('.nav-toggle');
   const mainNav = document.querySelector('.main-nav');
+  if (!navToggle || !mainNav) return;
+
+  function lockScroll(lock) {
+    if (lock) {
+      document.body.dataset.prevOverflow = document.body.style.overflow || '';
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = document.body.dataset.prevOverflow || '';
+    }
+  }
+
+  function closeMenu() {
+    if (mainNav.classList.contains('active')) {
+      mainNav.classList.remove('active');
+      lockScroll(false);
+    }
+  }
+
   navToggle.addEventListener('click', function() {
+    const willOpen = !mainNav.classList.contains('active');
     mainNav.classList.toggle('active');
+    navToggle.setAttribute('aria-expanded', willOpen ? 'true' : 'false');
+    lockScroll(willOpen && window.innerWidth <= 768);
+  });
+
+  // Close menu when any nav link is clicked (mobile)
+  navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      if (window.innerWidth <= 768) closeMenu();
+    });
+  });
+
+  // Outside click
+  document.addEventListener('click', (e) => {
+    if (window.innerWidth <= 768 && mainNav.classList.contains('active')) {
+      if (!mainNav.contains(e.target) && !navToggle.contains(e.target)) {
+        closeMenu();
+      }
+    }
+  });
+
+  // ESC key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeMenu();
+  });
+
+  // On resize: if switching to desktop, ensure menu visible (handled by CSS) and scroll unlocked
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 768) {
+      lockScroll(false);
+      navToggle.setAttribute('aria-expanded', 'false');
+    } else if (!mainNav.classList.contains('active')) {
+      lockScroll(false);
+      navToggle.setAttribute('aria-expanded', 'false');
+    }
   });
 });
 
 window.addEventListener('DOMContentLoaded', () => {
-  bgOne.style.backgroundImage = `url('${slides[0].image}')`;
-  bgOne.classList.add('visible');
-  heroTitle.textContent = slides[0].title;
-  setActiveNav(0);
-  startSlideshow();
+  if (bgOne && heroTitle && slides.length) {
+    bgOne.style.backgroundImage = `url('${slides[0].image}')`;
+    bgOne.classList.add('visible');
+    heroTitle.textContent = slides[0].title;
+    setActiveNav(0);
+    startSlideshow();
+  }
 });
 
 // Hero slides data
@@ -118,11 +173,11 @@ function nextSlide() {
   showSlide(currentSlide);
 }
 
-// Initialize first slide
-showSlide(currentSlide);
-
-// Auto-slide every 5 seconds
-setInterval(nextSlide, 5000);
+// Initialize second slideshow variant only if hero present
+if (heroTitle && bgLayers.length) {
+  showSlide(currentSlide);
+  setInterval(nextSlide, 5000);
+}
 
 // Reveal sections on scroll
 document.addEventListener("DOMContentLoaded", function () {
@@ -142,3 +197,43 @@ document.addEventListener("DOMContentLoaded", function () {
   );
   sections.forEach(section => observer.observe(section));
 });
+
+// Global Fixed Top Bar + Header handling
+(function() {
+  function initFixedHeaders() {
+    const topBar = document.querySelector('.top-bar');
+    const header = document.querySelector('.main-header');
+    if(!topBar || !header) return;
+
+    function applyOffsets() {
+      const topBarHeight = topBar.getBoundingClientRect().height || 0;
+      header.style.top = topBarHeight + 'px';
+      const total = topBarHeight + header.getBoundingClientRect().height;
+      document.body.classList.add('has-fixed-headers');
+      document.body.style.setProperty('--fixed-headers-height', total + 'px');
+    }
+
+    let resizeTimeout;
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimeout);
+      resizeTimeout = setTimeout(applyOffsets, 120);
+    });
+
+    window.addEventListener('scroll', () => {
+      if(window.scrollY > 12) header.classList.add('scrolled');
+      else header.classList.remove('scrolled');
+    });
+
+    const obs = new MutationObserver(applyOffsets);
+    obs.observe(topBar, {childList:true, subtree:true});
+    obs.observe(header, {childList:true, subtree:true});
+
+    applyOffsets();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initFixedHeaders);
+  } else {
+    initFixedHeaders();
+  }
+})();

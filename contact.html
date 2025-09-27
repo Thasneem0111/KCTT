@@ -2,11 +2,12 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
   <title>Contact | KCTT Group</title>
   <link rel="stylesheet" href="contact.css">
   <link rel="stylesheet" href="index.html">
   <link rel="stylesheet" href="canadaResidency.html">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 
@@ -40,6 +41,9 @@
           <li><a href="contact.html" data-index="7" class="active" style="width: 100%;">Contact Us</a></li>
         </ul>
       </nav>
+      <button class="nav-toggle" aria-label="Open navigation">
+        <i class="fa fa-bars"></i>
+      </button>
     </div>
   </header>
   <!-- Contact Section -->
@@ -74,7 +78,9 @@
             <option>Portfolio Planning</option>
             <option>Others</option>
           </select>
+          <span class="select-arrow" role="button" tabindex="0" aria-label="Open program options"><i class="fa fa-chevron-down" aria-hidden="true"></i></span>
         </div>
+
 
         <!-- Contact From -->
         <label for="contact-method">Preferred Contact From</label>
@@ -86,6 +92,7 @@
             <option>Phone Call</option>
             <option>Schedule Meeting</option>
           </select>
+          <span class="select-arrow" role="button" tabindex="0" aria-label="Open contact method options"><i class="fa fa-chevron-down" aria-hidden="true"></i></span>
         </div>
 
         <!-- Message -->
@@ -174,6 +181,86 @@
 </footer>
    
 </section>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const navToggle = document.querySelector('.nav-toggle');
+  const mainNav = document.querySelector('.main-nav');
+  navToggle.addEventListener('click', function() {
+    mainNav.classList.toggle('active');
+  });
+
+  // Enable clicking the custom arrow to open the native select
+  const openSelect = (sel) => {
+    if (!sel) return;
+    sel.focus();
+    // Modern browsers (Chromium / Safari TP)
+    if (typeof sel.showPicker === 'function') {
+      try { sel.showPicker(); return; } catch(_) {}
+    }
+    // Fallback attempts
+    try {
+      sel.dispatchEvent(new MouseEvent('mousedown', { bubbles: true, cancelable: true }));
+    } catch(_) {
+      sel.click();
+    }
+  };
+
+  document.querySelectorAll('.custom-select .select-arrow').forEach(arrow => {
+    const sel = arrow.closest('.custom-select')?.querySelector('select');
+    arrow.addEventListener('click', (e) => {
+      e.preventDefault();
+      openSelect(sel);
+    });
+    arrow.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        openSelect(sel);
+      }
+    });
+  });
+});
+
+// Fixed Top Bar + Header handling (page-specific fallback)
+(function() {
+  function initFixedHeaders() {
+    const topBar = document.querySelector('.top-bar');
+    const header = document.querySelector('.main-header');
+    if(!topBar || !header) return;
+
+    function applyOffsets() {
+      const topBarHeight = topBar.getBoundingClientRect().height || 0;
+      header.style.top = topBarHeight + 'px';
+      const total = topBarHeight + header.getBoundingClientRect().height;
+      document.body.classList.add('has-fixed-headers');
+      document.body.style.setProperty('--fixed-headers-height', total + 'px');
+    }
+
+    let resizeTimeout;
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimeout);
+      resizeTimeout = setTimeout(applyOffsets, 120);
+    });
+
+    window.addEventListener('scroll', () => {
+      if(window.scrollY > 12) header.classList.add('scrolled');
+      else header.classList.remove('scrolled');
+    });
+
+    const obs = new MutationObserver(applyOffsets);
+    obs.observe(topBar, {childList:true, subtree:true});
+    obs.observe(header, {childList:true, subtree:true});
+
+    applyOffsets();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initFixedHeaders);
+  } else {
+    initFixedHeaders();
+  }
+})();
+</script>
 
 </body>
 </html>
