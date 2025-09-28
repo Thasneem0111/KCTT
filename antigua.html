@@ -2,11 +2,14 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Canada Permanent Residency</title>
-    <link rel="stylesheet" href="index.html">
-    <link rel="stylesheet" href="contact.html">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+  <title>Antigua & Barbuda Citizenship by Investment</title>
+  <!-- Global stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <!-- Global script (nav toggle & fixed headers) -->
+  <script src="script.js" defer></script>
 
 
 </head>
@@ -26,13 +29,15 @@
   <!-- Header with Logo and Menu -->
   <header class="main-header">
     <div class="header-inner">
-      <a href="#" class="logo-link">
+      <a href="index.html" class="logo-link">
         <img src="images/logo.jpeg" alt="Company logo" class="logo-img">
       </a>
-      <nav class="main-nav">
+      <!-- Mobile navigation toggle -->
+      <button class="nav-toggle" aria-label="Open navigation" aria-expanded="false"><i class="fa fa-bars"></i></button>
+      <nav class="main-nav" aria-label="Primary navigation">
         <ul id="navList">
           <li><a href="index.html" data-index="0">Home</a></li>
-          <li><a href="citizenship.html" data-index="1"class="active">Citizenship By Investment</a></li>
+          <li><a href="citizenship.html" data-index="1" class="active">Citizenship By Investment</a></li>
           <li><a href="residencyInvestment.html" data-index="2">Residency By Investment</a></li>
           <li><a href="canadaResidency.html" data-index="3">Canada Permanent Residency</a></li>
           <li><a href="legalService.html" data-index="4">Legal Services For Canadian Expats</a></li>
@@ -51,7 +56,9 @@
       <div class="vertical-line"></div>
       <div class="content">
         <h2 class="main-heading">Antigua & Barbuda Citizenship by Investment</h2>
-        <div class="red-line"></div>
+  <div class="red-line"></div>
+  <!-- Mobile inline image (shown only on small screens) -->
+  <img src="images/antiguaNature.webp" alt="Antigua & Barbuda" class="mobile-inline-hero" />
         <p style="text-align: justify;">
           Antigua & Barbuda offers one of the Caribbean’s most flexible Citizenship by 
           Investment Programs, with options starting from USD 230,000. Successful applicants 
@@ -127,7 +134,9 @@
         <h5 class="sub-heading">LET US HELP YOU</h5>
         <h2 class="main-heading">To know more about Antigua & Barbuda citizenship by investment 
             services, please schedule a consultation with us.</h2>
-        <div class="red-line"></div>
+  <div class="red-line"></div>
+  <!-- Mobile inline image (shown only on small screens) -->
+  <img src="images/hand.jpg" alt="Consultation" class="mobile-inline-hero" />
         <p style="text-align: justify;">
           KCTT assists international clients in obtaining residence and citizenship under the respective programs. Contact us to arrange an initial private consultation.
         </p>        
@@ -188,7 +197,7 @@
 
   <!-- Footer Bottom -->
   <div class="footer-bottom">
-    Developed by ROI
+    © 2025 All Rights Reserved | Developed by ROI
   </div>
 </footer>
    
@@ -238,10 +247,14 @@ body { font-family: "Times New Roman", serif; }
 .main-header {
   background: #fff;
   border-bottom: 1px solid #ddd;
-  position: sticky;   
-  top: 0;            
-  z-index: 1000;     
+  position: fixed; /* fixed to align with saintKitts pattern */
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
 }
+.nav-toggle { display:none; } /* hide hamburger on desktop */
+body.has-fixed-headers { padding-top: var(--fixed-headers-height); }
 
 .header-inner {
   max-width: 1100px;
@@ -273,6 +286,9 @@ body { font-family: "Times New Roman", serif; }
   margin: auto;
   width: 100%;
 }
+
+/* Mobile inline hero images hidden by default (enabled in mobile media query) */
+.mobile-inline-hero { display:none; width:100%; height:auto; margin:14px 0 18px; border-radius:6px; }
 
 .canada-pr {
   padding: 50px 10%;
@@ -371,6 +387,31 @@ body { font-family: "Times New Roman", serif; }
 .canada-pr-right img {
   max-width: 100%;
   border-radius: 6px;
+}
+
+/* ---------------- Mobile (<=768px) specific adjustments ---------------- */
+@media (max-width: 768px) {
+  .nav-toggle { display:inline-flex; align-items:center; justify-content:center; background:transparent; border:none; font-size:30px; color:#333; cursor:pointer; padding:4px 6px; }
+  .header-inner { position:relative; gap:14px; }
+  .nav-toggle { position:absolute; right:10px; top:50%; transform:translateY(-50%); }
+  .main-nav ul { display:none; position:absolute; top:100%; right:0; left:auto; width:260px; max-width:80%; flex-direction:column; background:#fff; padding:18px 22px 24px; gap:10px; box-shadow:0 12px 28px rgba(0,0,0,0.08); border:1px solid #e7e7e7; border-top:none; border-radius:0 0 0 8px; align-items:flex-end; text-align:right; }
+  .main-nav.active ul { display:flex; }
+  .main-nav ul li { width:100%; }
+  .main-nav a { padding:6px 4px; display:block; width:100%; }
+  .main-nav a.active::after { display:none; }
+  /* Fix header to work with global offset script */
+  .main-header { position:fixed; width:100%; top:0; left:0; right:0; }
+  body.has-fixed-headers { padding-top: var(--fixed-headers-height); }
+  /* Section layout adjustments */
+  .canada-pr { padding:40px 6%; }
+  .canada-pr-container { flex-direction:column; }
+  .canada-pr-right { display:none; }
+  .mobile-inline-hero { display:block; }
+  .main-heading { font-size:22px; line-height:1.25; }
+  /* Citizen-invest tweaks */
+  .citizen-invest { padding:50px 16px; }
+  .ci-title { font-size:26px; }
+  .ci-left { padding:40px 32px; }
 }
 
 
