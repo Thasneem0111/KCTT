@@ -2,8 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
     <title>Presence Opportunities</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 </head>
 <body>
     
@@ -36,6 +37,7 @@
           <li><a href="contact.html">Contact Us</a></li>
         </ul>
       </nav>
+      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false"><i class="fa-solid fa-bars"></i></button>
     </div>
   </header>
 
@@ -48,6 +50,7 @@
         <h5 class="sub-heading">INVESTMENT OPPORTUNITIES</h5>
         <h2 class="main-heading">Unlock Global Investment Options</h2>
         <div class="red-line"></div>
+        <img src="images/global.png" alt="Global Investment" class="mobile-inline-hero" />
         <p>
           Explore diverse pathways to secure residency and citizenship through strategic investments.
         </p>
@@ -145,6 +148,7 @@
         <h5 class="sub-heading">LET US HELP YOU</h5>
         <h2 class="main-heading">To know more about our real estate services, please schedule a consultation with us.</h2>
         <div class="red-line"></div>
+        <img src="images/whand.jpg" alt="Consultation" class="mobile-inline-hero" />
         <p>
           KCTT assists international clients in obtaining residence and citizenship under the respective programs. Contact us to arrange an initial private consultation.
         </p>        
@@ -204,13 +208,31 @@
 
   <!-- Footer Bottom -->
   <div class="footer-bottom">
-    Developed by ROI
+    © 2025 All Rights Reserved | Developed by ROI
   </div>
 </footer>
    
 </section>
 
 
+  <script>
+  document.addEventListener('DOMContentLoaded',()=>{
+    const toggle=document.querySelector('.nav-toggle');
+    const nav=document.querySelector('.main-nav');
+    if(toggle && nav){
+      toggle.addEventListener('click',()=>{
+        const open=nav.classList.toggle('active');
+        toggle.setAttribute('aria-expanded', open? 'true':'false');
+      });
+      nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{
+        if(window.innerWidth<=768 && nav.classList.contains('active')){
+          nav.classList.remove('active');
+          toggle.setAttribute('aria-expanded','false');
+        }
+      }));
+    }
+  });
+  </script>
 </body>
 </html>
 
@@ -559,6 +581,41 @@ body { font-family: "Times New Roman", serif; }
 .footer ul li {
   margin-bottom: 8px;
   text-align: justify;  
+}
+
+/* Active link color (desktop keeps underline, mobile removes) */
+.main-nav a.active { color:red; }
+
+/* Elements used only on mobile */
+.nav-toggle { display:none; background:none; border:none; font-size:28px; color:#333; cursor:pointer; }
+.mobile-inline-hero { display:none; width:100%; height:auto; margin:14px 0 18px; border-radius:6px; }
+
+@media (max-width:768px){
+  body { padding-top:98px; }
+  .top-bar { position:fixed; top:0; left:0; right:0; z-index:1000; }
+  .main-header { position:fixed; top:34px; left:0; right:0; z-index:999; }
+  .header-inner { position:relative; }
+  .nav-toggle { display:inline-flex; align-items:center; justify-content:center; position:absolute; right:10px; top:50%; transform:translateY(-50%); padding:4px 6px; }
+  .main-nav ul { display:none; position:absolute; top:100%; right:0; width:260px; max-width:80%; flex-direction:column; background:#fff; padding:18px 22px 24px; gap:10px; box-shadow:0 12px 28px rgba(0,0,0,0.08); border:1px solid #e7e7e7; border-top:none; border-radius:0 0 0 8px; align-items:flex-end; text-align:left; }
+  .main-nav.active ul { display:flex; }
+  .main-nav ul li { width:100%; }
+  .main-nav a { font-size:15px; padding:6px 4px; display:block; width:100%; }
+  .main-nav a.active::after { display:none; }
+  .legal-pr { padding:42px 7% 50px; }
+  .legal-pr-container { flex-direction:column; }
+  .legal-pr-right { display:none; }
+  .mobile-inline-hero { display:block; }
+  .services { grid-template-columns:repeat(2,1fr); }
+  .vertical-line { min-height:40px; }
+  /* Full-cover service card images on mobile */
+  .service-card { padding:0; overflow:hidden; }
+  .service-card img { width:100%; height:200px; object-fit:cover; border-radius:0; display:block; }
+  .service-card h3 { padding:14px 16px 4px; margin:0; }
+  .service-card p { padding:0 16px 16px; margin:0; }
+  /* Mobile-only footer blur overlay */
+  .footer { position:relative; overflow:hidden; }
+  .footer::before { content:""; position:absolute; inset:0; background:rgba(255,205,0,0.55); backdrop-filter:blur(6px); -webkit-backdrop-filter:blur(6px); mix-blend-mode:multiply; }
+  .footer > * { position:relative; z-index:1; }
 }
 
 
