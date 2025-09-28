@@ -555,12 +555,24 @@ body {
 
 
 .footer {
+  position:relative;
   background: url("images/footer.jpg") center/cover no-repeat;
   color: #fff;
   padding: 50px 20px 20px;
   font-family: Arial, sans-serif;
   text-align: justify;
+  overflow:hidden;
 }
+.footer::before {
+  content:"";
+  position:absolute;
+  inset:0;
+  background:rgba(255,205,0,0.55);
+  backdrop-filter:blur(6px);
+  -webkit-backdrop-filter:blur(6px);
+  mix-blend-mode:multiply;
+}
+.footer > * { position:relative; z-index:1; }
 
 /* Footer Grid Layout */
 .footer-container {
