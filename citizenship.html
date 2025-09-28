@@ -127,9 +127,9 @@
   </section>
 
   <section class="residency-planning">
-  <div class="container">
-    <h1>Citizenship Planning</h1>
-    <div class="red-line"></div>
+  <div class="container residency-planning__inner">
+    <h1 class="residency-planning__title">Citizenship Planning</h1>
+    
     <div class="residency-items">
       <div class="residency-item">
         <h2>Citizenship by Investment Overview</h2>
@@ -473,7 +473,7 @@ body { font-family: "Times New Roman", serif; }
 
 h1 {
   color: #ffffff;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   margin-bottom: 30px;
   text-align: left;
   font-weight: normal;
@@ -859,6 +859,16 @@ p {
   .residency-planning .residency-item p { text-align: left; }
 }
 
+/* Residency Planning heading adjustments */
+.residency-planning { position: relative; padding-top: 30px; } /* reduce top padding so H1 appears closer to top */
+.residency-planning__inner { position: relative; text-align: left; }
+.residency-planning__title { margin: 0 0 10px; font-size: 1.5rem; } /* tighten space below heading */
+.residency-planning__underline { width:70px; height:3px; background:red; margin:0 0 28px; }
+@media (max-width:768px){
+  .residency-planning { padding-top: 35px; }
+  .residency-planning__title { margin-bottom: 10px; font-size: 1.6rem; }
+  .residency-planning__underline { margin:0 0 24px; }
+}
 </style>
 
 <!-- JavaScript -->

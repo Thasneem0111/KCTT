@@ -1047,8 +1047,9 @@ body.has-fixed-headers { padding-top: var(--fixed-headers-height, 140px); }
 .services-left h2 {
   font-size: 28px;
   margin: 0 0 18px;
+  font-weight: normal;
   display: inline-block;
-  padding-bottom: 8px; /* space for custom underline */
+  padding-bottom: 6px; /* space for custom underline */
   color: #fff;
   position: relative;
   border: none; /* remove original full-width line */
@@ -1148,6 +1149,15 @@ body.has-fixed-headers { padding-top: var(--fixed-headers-height, 140px); }
     height: auto; /* revert to content height on mobile for better spacing */
     border-radius: 6px; /* restore subtle rounding on small screens */
     padding: 40px 25px 50px;
+  }
+  /* Center the short underline below the heading on mobile */
+  .services-left h2::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  /* Justify paragraph text for better edge alignment on small screens */
+  .services-left p {
+    text-align: justify;
   }
 }
 
