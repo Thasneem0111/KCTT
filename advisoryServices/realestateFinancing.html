@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
     <title>Real Estate Financing </title>
     <link rel="stylesheet" href="index.html">
     <link rel="stylesheet" href="contact.html">
@@ -41,6 +41,7 @@
           <li><a href="/contact.html" data-index="7">Contact Us</a></li>
         </ul>
       </nav>
+      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false"><i class="fa-solid fa-bars"></i></button>
     </div>
   </header>
 
@@ -53,6 +54,7 @@
         <h5 class="sub-heading">CANADIAN EXPAT LEGAL SERVICES</h5>
         <h2 class="main-heading">Real Estate Financing</h2>
         <div class="red-line"></div>
+    <img src="/images/reEsFinance.webp" alt="Real Estate Financing" class="mobile-inline-hero" />
         <p style="color: #000;">
           Assistance with financing the purchase of real estate in Canada through our affiliate Canadian company.
         </p>
@@ -129,6 +131,7 @@
         <h5 class="sub-heading">LET US HELP YOU</h5>
         <h2 class="main-heading">To know more about Real Estate Financing services, please schedule a consultation with us.</h2>
         <div class="red-line"></div>
+    <img src="/images/about.jpg" alt="Consultation" class="mobile-inline-hero" />
         <p>
           KCTT assists international clients in obtaining residence and citizenship under the respective programs. Contact us to arrange an initial private consultation.
         </p>        
@@ -606,13 +609,9 @@ body { font-family: "Times New Roman", serif; }
 }
 
 
-.footer {
-  background: url("/images/footer.jpg") center/cover no-repeat;
-  color: #fff;
-  padding: 50px 20px 20px;
-  font-family: Arial, sans-serif;
-  text-align: justify;
-}
+.footer { position:relative; background:url("/images/footer.jpg") center/cover no-repeat; color:#fff; padding:50px 20px 20px; font-family:Arial, sans-serif; text-align:justify; overflow:hidden; }
+.footer::before { content:""; position:absolute; inset:0; background:rgba(255,205,0,0.55); backdrop-filter:blur(6px); -webkit-backdrop-filter:blur(6px); mix-blend-mode:multiply; }
+.footer > * { position:relative; z-index:1; }
 
 /* Footer Grid Layout */
 .footer-container {
@@ -689,7 +688,40 @@ body { font-family: "Times New Roman", serif; }
   text-align: justify;  
 }
 
+.main-nav a.active { color:red; }
+.nav-toggle { display:none; background:none; border:none; font-size:28px; color:#333; cursor:pointer; }
+.mobile-inline-hero { display:none; width:100%; height:auto; margin:14px 0 18px; border-radius:6px; }
+@media (max-width:768px){
+  body { padding-top:98px; }
+  .top-bar { position:fixed; top:0; left:0; right:0; z-index:1000; }
+  .main-header { position:fixed; top:34px; left:0; right:0; z-index:999; }
+  .header-inner { position:relative; }
+  .nav-toggle { display:inline-flex; align-items:center; justify-content:center; position:absolute; right:10px; top:50%; transform:translateY(-50%); padding:4px 6px; }
+  .main-nav ul { display:none; position:absolute; top:100%; right:0; width:260px; max-width:80%; flex-direction:column; background:#fff; padding:18px 22px 24px; gap:10px; box-shadow:0 12px 28px rgba(0,0,0,0.08); border:1px solid #e7e7e7; border-top:none; border-radius:0 0 0 8px; align-items:flex-end; text-align:left; }
+  .main-nav.active ul { display:flex; }
+  .main-nav ul li { width:100%; }
+  .main-nav a { font-size:15px; padding:6px 4px; display:block; width:100%; }
+  .main-nav a.active::after { display:none; }
+  .canada-pr { padding:42px 7% 50px; }
+  .canada-pr-container { flex-direction:column; }
+  .canada-pr-right { display:none; }
+  .mobile-inline-hero { display:block; }
+  .benefits-grid { grid-template-columns:repeat(2,1fr); }
+  .section-title { font-size:32px; }
+  .vertical-line { min-height:40px; }
+}
+
 </style>
+<script>
+document.addEventListener('DOMContentLoaded',()=>{
+  const t=document.querySelector('.nav-toggle');
+  const n=document.querySelector('.main-nav');
+  if(t&&n){
+    t.addEventListener('click',()=>{ const o=n.classList.toggle('active'); t.setAttribute('aria-expanded', o? 'true':'false'); });
+    n.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{ if(window.innerWidth<=768 && n.classList.contains('active')){ n.classList.remove('active'); t.setAttribute('aria-expanded','false'); }}));
+  }
+});
+</script>
 
 </body>
 </html>
