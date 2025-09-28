@@ -1,6 +1,5 @@
-// Slides (8 options with images)
-const slides = [
-  // { title: 'Citizenship By Investment', image: 'images/Citizenship-By-Investment.jpg' },
+// Unified Slides data (hero)
+const heroSlides = [
   { title: 'Citizenship By Investment', image: 'images/Citizenship-By-Investment.jpg' },
   { title: 'Residency By Investment', image: 'images/res.webp' },
   { title: 'Canada Permanent Residency', image: 'images/canada.jpg' },
@@ -9,63 +8,86 @@ const slides = [
   { title: 'Other Services', image: 'images/services.jpg' }
 ];
 
-const bgOne = document.querySelector('.bg-layer.one');
-const bgTwo = document.querySelector('.bg-layer.two');
 const heroTitle = document.getElementById('heroTitle');
 const navLinks = document.querySelectorAll('#navList a');
+const layerA = document.querySelector('.bg-layer.one');
+const layerB = document.querySelector('.bg-layer.two');
+let activeLayerIsA = true;
+let currentSlideIndex = 0;
+let heroIntervalId = null;
 
-let currentIndex = 0;
-let showingFirst = true;
-let intervalId = null;
-
-function setActiveNav(index) {
+function setActiveNav(i) {
   navLinks.forEach(a => a.classList.remove('active'));
-  const target = document.querySelector(`#navList a[data-index="${index}"]`);
+  const target = document.querySelector(`#navList a[data-index="${i}"]`);
   if (target) target.classList.add('active');
 }
 
-function showSlide(index, immediate = false) {
-  const slide = slides[index];
-  if (!slide) return;
-
-  const incoming = showingFirst ? bgTwo : bgOne;
-  const outgoing = showingFirst ? bgOne : bgTwo;
-
-  incoming.style.backgroundImage = `url('${slide.image}')`;
-  incoming.classList.add('visible');
-  if (immediate) {
-    outgoing.classList.remove('visible');
-  } else {
-    setTimeout(() => outgoing.classList.remove('visible'), 20);
-  }
-
-  heroTitle.textContent = slide.title;
-//   setActiveNav(index);
-
-  showingFirst = !showingFirst;
+function prepareInitialLayers() {
+  if (!layerA || !layerB) return;
+  layerA.classList.add('is-entering'); // show first
+  layerB.classList.add('is-idle');
+  layerA.style.backgroundImage = `url('${heroSlides[0].image}')`;
+  heroTitle.textContent = heroSlides[0].title;
+  setActiveNav(0);
 }
 
-function nextSlide() {
-  currentIndex = (currentIndex + 1) % slides.length;
-  showSlide(currentIndex);
+function transitionToSlide(nextIndex) {
+  if (!layerA || !layerB) return;
+  const nextData = heroSlides[nextIndex];
+  const incoming = activeLayerIsA ? layerB : layerA;
+  const outgoing = activeLayerIsA ? layerA : layerB;
+
+  // Reset classes
+  [incoming, outgoing].forEach(el => el.classList.remove('is-entering','is-leaving','is-idle'));
+
+  // Prepare incoming off-screen right
+  incoming.style.backgroundImage = `url('${nextData.image}')`;
+  incoming.classList.add('is-entering');
+  // Mark outgoing to slide left & fade
+  outgoing.classList.add('is-leaving');
+
+  // After animation completes, park outgoing to idle right again
+  setTimeout(() => {
+    outgoing.classList.remove('is-leaving');
+    outgoing.classList.add('is-idle');
+  }, 1300); // slightly longer than CSS transition
+
+  heroTitle.textContent = nextData.title;
+  setActiveNav(nextIndex);
+  activeLayerIsA = !activeLayerIsA;
 }
 
-function startSlideshow() {
-  if (intervalId) clearInterval(intervalId);
-  intervalId = setInterval(nextSlide, 3000);
+function nextHeroSlide() {
+  currentSlideIndex = (currentSlideIndex + 1) % heroSlides.length;
+  transitionToSlide(currentSlideIndex);
+}
+
+function startHeroAuto() {
+  if (heroIntervalId) clearInterval(heroIntervalId);
+  heroIntervalId = setInterval(nextHeroSlide, 5000);
 }
 
 navLinks.forEach(link => {
-  link.addEventListener('click', (e) => {
+  link.addEventListener('click', e => {
+    const idxAttr = link.getAttribute('data-index');
+    const idx = parseInt(idxAttr, 10);
     const href = link.getAttribute('href');
-    const index = parseInt(link.getAttribute('data-index'), 10);
-
-    // If the link is just "#" → control slideshow
-    if (href === "#" && !isNaN(index)) {
-      e.preventDefault(); // prevent jumping to top
-      currentIndex = index;
-      showSlide(currentIndex, true);
-      startSlideshow();
+    // Only hijack if link is meant to control hero (e.g., Home) AND doesn't point to another page
+    const isInternalSlide = !isNaN(idx) && idx >= 0 && idx < heroSlides.length && (href === '' || href === '#' || href === window.location.pathname || href === null);
+    if (isInternalSlide) {
+      e.preventDefault();
+      currentSlideIndex = idx;
+      transitionToSlide(currentSlideIndex);
+      startHeroAuto();
+    } else {
+      // Let normal navigation occur; also close mobile menu if open
+      if (window.innerWidth <= 768) {
+        const mainNav = document.querySelector('.main-nav');
+        if (mainNav && mainNav.classList.contains('active')) {
+          mainNav.classList.remove('active');
+          document.body.style.overflow = '';
+        }
+      }
     }
   });
 });
@@ -131,53 +153,13 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 
+// Initialize hero after DOM ready
 window.addEventListener('DOMContentLoaded', () => {
-  if (bgOne && heroTitle && slides.length) {
-    bgOne.style.backgroundImage = `url('${slides[0].image}')`;
-    bgOne.classList.add('visible');
-    heroTitle.textContent = slides[0].title;
-    setActiveNav(0);
-    startSlideshow();
+  if (heroSlides.length && layerA && layerB && heroTitle) {
+    prepareInitialLayers();
+    startHeroAuto();
   }
 });
-
-// Hero slides data
-const heroSlides = [
-  { title: 'Citizenship By Investment', image: 'images/Citizenship-By-Investment.jpg' },
-  { title: 'Residency By Investment', image: 'images/res.webp' },
-  { title: 'Canada Permanent Residency', image: 'images/canada.jpg' },
-  { title: 'Legal Services For Canadian Expats', image: 'images/legal.jpg' },
-  { title: 'Real Estate Investment Advisory Services', image: 'images/realestate.webp' },
-  { title: 'Other Services', image: 'images/services.jpg' }
-];
-
-let currentSlide = 0;
-const bgLayers = document.querySelectorAll('.bg-layer');
-
-function showSlide(index) {
-  // Update title
-  heroTitle.textContent = heroSlides[index].title;
-  // Update background images
-  bgLayers.forEach((layer, i) => {
-    if (i === 0) {
-      layer.style.backgroundImage = `url('${heroSlides[index].image}')`;
-      layer.classList.add('visible');
-    } else {
-      layer.classList.remove('visible');
-    }
-  });
-}
-
-function nextSlide() {
-  currentSlide = (currentSlide + 1) % heroSlides.length;
-  showSlide(currentSlide);
-}
-
-// Initialize second slideshow variant only if hero present
-if (heroTitle && bgLayers.length) {
-  showSlide(currentSlide);
-  setInterval(nextSlide, 5000);
-}
 
 // Reveal sections on scroll
 document.addEventListener("DOMContentLoaded", function () {

@@ -21,13 +21,13 @@
     </div>
   </div>
 
-  <!-- Header with Logo and Menu -->
+  <!-- Header with Logo and Menu (matched to index.html styling) -->
   <header class="main-header">
     <div class="header-inner">
       <a href="index.html" class="logo-link">
         <img src="images/logo.jpeg" alt="Company logo" class="logo-img">
       </a>
-      <nav class="main-nav">
+      <nav class="main-nav" aria-label="Main navigation">
         <ul id="navList">
           <li><a href="index.html" data-index="0">Home</a></li>
           <li><a href="citizenship.html" data-index="1" class="active">Citizenship By Investment</a></li>
@@ -86,7 +86,7 @@
             </div>
             <h3>Saint Kitts & Nevis</h3>
             <p style="color: #000;">Citizenship by investment from USD 250,000; visa-free access to 157 countries including the UK, Schengen Zone, and most Commonwealth nations.</p>
-            <a href="saintKitts.html">Click to learn more</a>
+            <a href="saintKitts.html">————— Click to learn more —————</a>
         </div>
         
         <div class="program">
@@ -95,7 +95,7 @@
             </div>
             <h3>Antigua & Barbuda</h3>
             <p style="color: #000;">Citizenship by investment from USD 230,000; visa-free access to 157 countries worldwide.</p>
-            <a href="antigua.html">Click to learn more</a>
+            <a href="antigua.html">————— Click to learn more —————</a>
         </div>    
                 
         <div class="program">
@@ -104,7 +104,7 @@
             </div>
             <h3>Dominica</h3>
             <p style="color: #000;">Citizenship by investment from USD 200,000; visa-free access to 153 countries including the UK and Schengen Zone.</p>
-            <a href="dominica.html" style="text-align: center;">Click to learn more</a>
+            <a href="dominica.html" style="text-align: center;">————— Click to learn more —————</a>
         </div> 
 
         <div class="program">
@@ -113,7 +113,7 @@
             </div>
             <h3>Grenada</h3>
             <p style="color: #000;">Citizenship by investment from USD 235,000; visa-free or visa-on-arrival access to over 140 countries.</p>
-            <a href="grenada.html" style="text-align: center;">Click to learn more</a>
+            <a href="grenada.html" style="text-align: center;">————— Click to learn more —————</a>
         </div> 
         <div class="program">
           <div class="program-image">
@@ -121,7 +121,7 @@
             </div>
             <h3>Saint Lucia</h3>
             <p style="color: #000;">Citizenship by investment from USD 240,000; visa-free access to 154 countries worldwide.</p>
-            <a href="saintLucia.html" style="text-align: center;">Click to learn more</a>
+            <a href="saintLucia.html" style="text-align: center;">————— Click to learn more —————</a>
         </div>  
     </div>
   </section>
@@ -243,7 +243,7 @@
 
   <!-- Footer Bottom -->
   <div class="footer-bottom">
-    Developed by ROI
+    © 2025 All Rights Reserved | Developed by ROI
   </div>
 </footer>
    
@@ -312,21 +312,27 @@ body { font-family: "Times New Roman", serif; }
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 10px;
+  padding: 10px 10px 10px 0; /* remove left padding so logo hits left edge */
 }
 .logo-img { height: 50px; }
 /* Removed inline .main-nav ul block to rely on shared stylesheet for responsive behavior */
 .main-nav ul { list-style: none; }
 .main-nav a {
-  font-size: 14px; /* reduced */
+  font-size: 12px; /* reduced */
   text-decoration: none;
   color: #333;
   position: relative;
+  font-family: 'Times New Roman', Times, serif;
 }
 .main-nav a.active::after {
   content: none !important; /* remove underline */
 }
 .main-nav a.active { color:#e00000; font-weight:600; }
+
+/* Ensure desktop layout mirrors index page tweak */
+@media (min-width: 901px) {
+  .header-inner { gap: 40px; }
+}
 
 .canada-pr {
   padding: 50px 10%;
@@ -715,7 +721,7 @@ p {
 }
 
 .citizenship-programs .program a {
-    color: #0066cc;
+    color: #747677;
     text-decoration: none;
     font-weight: bold;
     display: block;
@@ -723,7 +729,7 @@ p {
     
 }
 .citizenship-programs .program a:hover {
-    color: #004499;
+    color: #d10f0f;
 }
 
 /* Responsive: Stack on mobile */
