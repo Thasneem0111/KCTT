@@ -834,30 +834,111 @@ p {
 /* Center the two program boxes (desktop) */
 @media (min-width: 769px) {
   .citizenship-programs .programs-container { justify-content:center; gap:40px; max-width:1200px; margin-left:300px; margin-right:auto; }
-  .citizenship-programs .program { flex:0 0 500px; max-width:500px; }
+  .citizenship-programs .program { flex:0 0 360px; max-width:360px; }
 }
+
+/* Scroll Animation Styles */
+.animate-section {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.animate-section.animate-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Animation for program cards */
+.citizenship-programs .program {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.citizenship-programs .program.animate-ready {
+  opacity: 0;
+  transform: translateY(40px);
+}
+
+.citizenship-programs .program.animate-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.citizenship-programs .program:nth-child(1) { transition-delay: 0.1s; }
+.citizenship-programs .program:nth-child(2) { transition-delay: 0.2s; }
+
+/* Animation for residency planning items */
+.residency-item {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+}
+
+.residency-item.animate-ready {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.residency-item.animate-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.residency-item:nth-child(1) { transition-delay: 0.1s; }
+.residency-item:nth-child(2) { transition-delay: 0.2s; }
+.residency-item:nth-child(3) { transition-delay: 0.3s; }
 
 </style>
 
 <!-- JavaScript -->
 <script>
-document.querySelectorAll(".toggle-features").forEach(link => {
-  link.addEventListener("click", function(e) {
-    e.preventDefault();
-    const card = this.closest(".program-card");
-    const extras = card.querySelectorAll(".extra-feature");
+// Scroll Animation System
+(function() {
+  const observerOptions = {
+    threshold: 0.15,
+    rootMargin: '0px 0px -80px 0px'
+  };
 
-    extras.forEach(f => f.classList.toggle("hidden"));
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('animate-in');
+      }
+    });
+  }, observerOptions);
 
-    if (this.textContent.includes("+")) {
-      this.textContent = "Show Less";
-      extras.forEach(f => f.style.display = "list-item");
-    } else {
-      this.textContent = "+2 more features";
-      extras.forEach(f => f.style.display = "none");
-    }
-  });
-});
+  function initScrollAnimations() {
+    // Animate main sections
+    const sections = document.querySelectorAll('.canada-pr, .citizenship-programs, .residency-planning');
+    sections.forEach(section => {
+      section.classList.add('animate-section');
+      observer.observe(section);
+    });
+
+    // Animate program cards with staggered effect
+    const programs = document.querySelectorAll('.citizenship-programs .program');
+    programs.forEach(program => {
+      program.classList.add('animate-ready');
+      observer.observe(program);
+    });
+
+    // Animate residency planning items
+    const residencyItems = document.querySelectorAll('.residency-item');
+    residencyItems.forEach(item => {
+      item.classList.add('animate-ready');
+      observer.observe(item);
+    });
+  }
+
+  // Initialize when DOM is ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initScrollAnimations);
+  } else {
+    initScrollAnimations();
+  }
+})();
 </script>
 
 <!-- Nav toggle handled globally in script.js -->

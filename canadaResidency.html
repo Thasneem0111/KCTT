@@ -828,10 +828,118 @@ body { font-family: "Times New Roman", serif; }
   text-align: justify;  
 }
 
+/* Scroll Animation Styles */
+.animate-section {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.animate-section.animate-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Animation for program cards */
+.program-card {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.program-card.animate-ready {
+  opacity: 0;
+  transform: translateY(40px);
+}
+
+.program-card.animate-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.program-card:nth-child(1) { transition-delay: 0.1s; }
+.program-card:nth-child(2) { transition-delay: 0.2s; }
+.program-card:nth-child(3) { transition-delay: 0.3s; }
+
+/* Animation for benefit cards */
+.benefit-card {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.benefit-card.animate-ready {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.benefit-card.animate-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Staggered delays for benefit cards */
+.benefit-card:nth-child(1) { transition-delay: 0.1s; }
+.benefit-card:nth-child(2) { transition-delay: 0.15s; }
+.benefit-card:nth-child(3) { transition-delay: 0.2s; }
+.benefit-card:nth-child(4) { transition-delay: 0.25s; }
+.benefit-card:nth-child(5) { transition-delay: 0.3s; }
+.benefit-card:nth-child(6) { transition-delay: 0.35s; }
+.benefit-card:nth-child(7) { transition-delay: 0.4s; }
+.benefit-card:nth-child(8) { transition-delay: 0.45s; }
+.benefit-card:nth-child(9) { transition-delay: 0.5s; }
+.benefit-card:nth-child(10) { transition-delay: 0.55s; }
+
 </style>
 
 <!-- JavaScript -->
 <script>
+// Scroll Animation System
+(function() {
+  const observerOptions = {
+    threshold: 0.15,
+    rootMargin: '0px 0px -80px 0px'
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('animate-in');
+      }
+    });
+  }, observerOptions);
+
+  function initScrollAnimations() {
+    // Animate main sections
+    const sections = document.querySelectorAll('.canada-pr, .immigration-programs, .benefits');
+    sections.forEach(section => {
+      section.classList.add('animate-section');
+      observer.observe(section);
+    });
+
+    // Animate program cards with staggered effect
+    const programCards = document.querySelectorAll('.program-card');
+    programCards.forEach(card => {
+      card.classList.add('animate-ready');
+      observer.observe(card);
+    });
+
+    // Animate benefit cards with staggered effect
+    const benefitCards = document.querySelectorAll('.benefit-card');
+    benefitCards.forEach(card => {
+      card.classList.add('animate-ready');
+      observer.observe(card);
+    });
+  }
+
+  // Initialize when DOM is ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initScrollAnimations);
+  } else {
+    initScrollAnimations();
+  }
+})();
+
 // Mobile nav toggle (mirrors contact.html behavior)
 document.addEventListener('DOMContentLoaded', function(){
   const navToggle = document.querySelector('.nav-toggle');
