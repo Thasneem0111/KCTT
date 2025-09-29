@@ -51,7 +51,11 @@
     <!-- Left Side: Contact Form -->
     <div class="contact-form">
       <h2>Contact Information</h2>
-      <form action="#" method="post">
+      <form name="contact" method="post" data-netlify="true" data-netlify-honeypot="bot-field" action="/thank-you.html">
+        <!-- Hidden field for bot detection -->
+        <p style="display: none;">
+          <label>Don't fill this out if you're human: <input name="bot-field" /></label>
+        </p>
 
         <!-- Full Name -->
         <label for="name">Full Name</label>

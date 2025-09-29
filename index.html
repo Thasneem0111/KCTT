@@ -2,7 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+  <meta name="format-detection" content="telephone=no" />
+  <meta name="mobile-web-app-capable" content="yes" />
   <title>KCTT Website</title>
 
   <!-- Main CSS -->
@@ -31,12 +33,12 @@
   <!-- Header with Logo and Menu -->
   <header class="main-header">
     <div class="header-inner">
-      <a href="#" class="logo-link">
+      <a href="index.html" class="logo-link">
         <img src="images/logo.jpeg" alt="Company logo" class="logo-img">
       </a>
       <nav class="main-nav">
         <ul id="navList">
-          <li><a href="" data-index="0" class="active">Home</a></li>
+          <li><a href="index.html" data-index="0" class="active">Home</a></li>
           <li><a href="citizenship.html" data-index="1">Citizenship By Investment</a></li>
           <li><a href="residencyInvestment.html" data-index="2">Residency By Investment</a></li>
           <li><a href="canadaResidency.html" data-index="3">Canada Permanent Residency</a></li>
@@ -458,16 +460,20 @@
   </div>
 
   <div class="right-side">
-    <h5>OUR PRESENCE</h5>
-    <h2>Since 2002, Serving Clients</h2>
-    <p>
-      With branches and trusted partners across multiple countries, we have built 
-      a reputation for delivering reliable, discreet, and client-focused immigration 
-      and investment advisory services worldwide.
-    </p>
-    <a href="ourPresence.html" class="investment-button">VIEW INVESTMENT OPPORTUNITIES →</a>
-    <!-- Place the image here -->
-    <img src="images/ourpresenceWorld.jpg" alt="Our Presence World" class="mobile-presence-img">
+    <div class="header-content">
+      <h5>OUR PRESENCE</h5>
+      <h2>Since 2002, Serving Clients</h2>
+    </div>
+    <div class="text-content">
+      <p>
+        With branches and trusted partners across multiple countries, we have built 
+        a reputation for delivering reliable, discreet, and client-focused immigration 
+        and investment advisory services worldwide.
+      </p>
+    </div>
+    <div class="button-content">
+      <a href="ourPresence.html" class="investment-button">VIEW INVESTMENT OPPORTUNITIES →</a>
+    </div>
   </div>
 </section>
 

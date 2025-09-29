@@ -24,11 +24,32 @@ function setActiveNav(i) {
 
 function prepareInitialLayers() {
   if (!layerA || !layerB) return;
-  layerA.classList.add('is-entering'); // show first
-  layerB.classList.add('is-idle');
+  
+  const hero = document.querySelector('.hero');
+  if (hero) {
+    hero.classList.add('loading'); // Add loading state
+  }
+  
+  // Set initial state without expensive transitions
+  layerA.style.transition = 'none';
   layerA.style.backgroundImage = `url('${heroSlides[0].image}')`;
+  layerA.classList.add('is-entering');
+  layerB.classList.add('is-idle');
+  
   heroTitle.textContent = heroSlides[0].title;
   setActiveNav(0);
+  
+  // Re-enable transitions after a brief delay
+  requestAnimationFrame(() => {
+    setTimeout(() => {
+      layerA.style.transition = '';
+      if (hero) {
+        hero.classList.remove('loading');
+      }
+      // Ensure smooth scrolling is enabled after initialization
+      document.documentElement.style.scrollBehavior = 'auto';
+    }, 100);
+  });
 }
 
 function transitionToSlide(nextIndex) {
@@ -156,25 +177,46 @@ document.addEventListener('DOMContentLoaded', function() {
 // Initialize hero after DOM ready
 window.addEventListener('DOMContentLoaded', () => {
   if (heroSlides.length && layerA && layerB && heroTitle) {
+    // Temporarily prevent scroll interference during hero initialization
+    const originalOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    
     prepareInitialLayers();
-    startHeroAuto();
+    
+    // Re-enable scrolling after hero is ready
+    setTimeout(() => {
+      document.body.style.overflow = originalOverflow || '';
+      startHeroAuto();
+    }, 200);
   }
 });
 
-// Reveal sections on scroll
+// Reveal sections on scroll - optimized for mobile
 document.addEventListener("DOMContentLoaded", function () {
   const sections = document.querySelectorAll('.reveal-section');
+  
+  // Use different thresholds for mobile vs desktop
+  const isMobile = window.innerWidth <= 768;
+  const threshold = isMobile ? 0.05 : 0.1; // Lower threshold for mobile - reveals sooner
+  
+  // Check if user prefers reduced motion
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  
   const observer = new IntersectionObserver(
     (entries, observer) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
+          // Use requestAnimationFrame for smoother animations without blocking scroll
+          requestAnimationFrame(() => {
+            entry.target.classList.add('visible');
+          });
           observer.unobserve(entry.target); // Animate only once
         }
       });
     },
     {
-      threshold: 0.15 // Trigger when 15% of the section is visible
+      threshold: threshold,
+      rootMargin: isMobile ? '0px 0px -20px 0px' : '0px 0px -40px 0px'
     }
   );
   sections.forEach(section => observer.observe(section));
