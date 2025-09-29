@@ -82,19 +82,27 @@
 </section>
 
     <!-- Immigration Programs Section -->
-<section class="immigration-programs">
+<section class="immigration-programs animate-section">
   <div class="container">
-    <h2 class="section-title">Immigration Programs</h2>
+    <p class="sub-heading">IMMIGRATION PATHWAYS</p>
+    <h2 class="section-title">Canada Immigration Programs</h2>
     <div class="underline"></div>
+    <p class="section-description">Explore our comprehensive range of Canadian immigration programs designed to help you achieve permanent residency through various pathways.</p>
 
     <div class="programs-grid">
       <!-- Program 1 -->
-      <div class="program-card">
-        <img src="images/spouse.jpg" alt="Spouse & Common-law Sponsorship">
-        <h3>Spouse & Common-law Sponsorship</h3>
-        <p>Sponsorship program for Canadians married to or in a common-law relationship with a non-Canadian spouse.</p>
-        
-        <h4>Key Features</h4>
+      <div class="program-card animate-card">
+        <div class="card-header">
+          <div class="card-icon">
+            <i class="fas fa-heart"></i>
+          </div>
+          <img src="images/spouse.jpg" alt="Spouse & Common-law Sponsorship">
+        </div>
+        <div class="card-content">
+          <h3>Spouse & Common-law Sponsorship</h3>
+          <p class="program-description">Sponsorship program for Canadians married to or in a common-law relationship with a non-Canadian spouse.</p>
+          
+          <h4>Key Features</h4>
         <ul class="features">
           <li><i class="fa-solid fa-circle-check"></i> Sponsor spouse or common-law partner</li>
           <li><i class="fa-solid fa-circle-check"></i> Family reunification program</li>
@@ -106,21 +114,30 @@
         <a href="#" class="toggle-features">+2 more features</a>
 
         <div class="requirements">
-          <i class="fa-regular fa-note-sticky"><h4>Requirements</h4></i>
-          
-            <div class="requirement-item">
-              <p>Sponsor must be Canadian Citizen/PR, prove genuine relationship, and meet financial and residency requirements.</p>
-            </div>
+          <div class="requirements-header">
+            <i class="fa-regular fa-note-sticky"></i>
+            <h4>Requirements</h4>
+          </div>
+          <div class="requirement-item">
+            <p>Sponsor must be Canadian Citizen/PR, prove genuine relationship, and meet financial and residency requirements.</p>
+          </div>
+        </div>
         </div>
       </div>
 
       <!-- Program 2 -->
-      <div class="program-card">
-        <img src="images/permanent.jpg" alt="Permanent Residence Programs">
-        <h3>Permanent Residence Programs</h3>
-        <p>Obtain Canadian permanent residence under various immigration pathways.</p>
-        
-        <h4>Key Features</h4>
+      <div class="program-card animate-card">
+        <div class="card-header">
+          <div class="card-icon">
+            <i class="fas fa-passport"></i>
+          </div>
+          <img src="images/permanent.jpg" alt="Permanent Residence Programs">
+        </div>
+        <div class="card-content">
+          <h3>Permanent Residence Programs</h3>
+          <p class="program-description">Obtain Canadian permanent residence under various immigration pathways.</p>
+          
+          <h4>Key Features</h4>
         <ul class="features">
           <li><i class="fa-solid fa-circle-check"></i> Express Entry system</li>
           <li><i class="fa-solid fa-circle-check"></i> Skilled Worker programs</li>
@@ -131,22 +148,30 @@
         <a href="#" class="toggle-features">+2 more features</a>
 
         <div class="requirements">
-          <i class="fa-regular fa-note-sticky"><h4>Requirements</h4></i>
-          
-            <div class="requirement-item">
-              <p> Meet eligibility criteria such as work experience, education, and language proficiency depending on the program.</p>
-            </div>
+          <div class="requirements-header">
+            <i class="fa-regular fa-note-sticky"></i>
+            <h4>Requirements</h4>
+          </div>
+          <div class="requirement-item">
+            <p>Meet eligibility criteria such as work experience, education, and language proficiency depending on the program.</p>
+          </div>
         </div>
-
+        </div>
       </div>
 
       <!-- Program 3 -->
-      <div class="program-card">
-        <img src="images/startup.jpg" alt="Start-up Visa">
-        <h3>Start-up Visa</h3>
-        <p>Immigration program for innovative entrepreneurs launching businesses in Canada.</p>
-        
-        <h4>Key Features</h4>
+      <div class="program-card animate-card">
+        <div class="card-header">
+          <div class="card-icon">
+            <i class="fas fa-rocket"></i>
+          </div>
+          <img src="images/startup.jpg" alt="Start-up Visa">
+        </div>
+        <div class="card-content">
+          <h3>Start-up Visa</h3>
+          <p class="program-description">Immigration program for innovative entrepreneurs launching businesses in Canada.</p>
+          
+          <h4>Key Features</h4>
         <ul class="features">
           <li><i class="fa-solid fa-circle-check"></i> Support from designated organizations</li>
           <li><i class="fa-solid fa-circle-check"></i> Business incubator or accelerator approval</li>
@@ -157,11 +182,14 @@
         <a href="#" class="toggle-features">+2 more features</a>
 
         <div class="requirements">
-          <i class="fa-regular fa-note-sticky"><h4>Requirements</h4></i>
-          
-            <div class="requirement-item">
-              <p> Innovative business concept, proof of designated organization support, and sufficient settlement funds.</p>
-            </div>
+          <div class="requirements-header">
+            <i class="fa-regular fa-note-sticky"></i>
+            <h4>Requirements</h4>
+          </div>
+          <div class="requirement-item">
+            <p>Innovative business concept, proof of designated organization support, and sufficient settlement funds.</p>
+          </div>
+        </div>
         </div>
       </div>
 
@@ -507,166 +535,298 @@ body { font-family: "Times New Roman", serif; }
 }
 
 
+/* ========== IMMIGRATION PROGRAMS SECTION ========== */
 .immigration-programs {
   width: 100%;
-  padding: 60px 20px;
-  background: #fff;
+  padding: 80px 20px;
+  background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
   font-family: Arial, sans-serif;
-  
+  position: relative;
 }
 
-.section-title {
+.immigration-programs::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.immigration-programs .container {
+  max-width: 1200px;
+  margin: 0 auto;
   text-align: center;
+}
+
+.immigration-programs .sub-heading {
+  color: #e00000;
+  font-size: 14px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 10px;
+}
+
+.immigration-programs .section-title {
   font-size: 2rem;
   font-weight: 700;
-  margin-bottom: 5px;
+  margin-bottom: 12px;
+  color: #2c3e50;
+  font-family: "Times New Roman", serif;
 }
 
-.underline {
-  width: 80px;
+.immigration-programs .underline {
+  width: 60px;
   height: 3px;
-  background: red;
+  background: linear-gradient(90deg, #e00000 0%, #ff6b6b 100%);
+  margin: 0 auto 15px;
+  border-radius: 2px;
+}
+
+.immigration-programs .section-description {
+  font-size: 0.95rem;
+  color: #666;
+  max-width: 600px;
   margin: 0 auto 40px;
+  line-height: 1.5;
 }
 
 .programs-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 25px;
+  margin-top: 35px;
 }
 
 .program-card {
   background: #fff;
-  border: 1px solid #eee;
-  border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-  padding: 20px;
-  transition: transform 0.3s ease;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.10);
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  position: relative;
+  border: 1px solid rgba(224, 0, 0, 0.1);
 }
 
 .program-card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-8px);
+  box-shadow: 0 15px 40px rgba(224, 0, 0, 0.2);
+}
+
+.card-header {
+  position: relative;
+  overflow: hidden;
+}
+
+.card-icon {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 50px;
+  height: 50px;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.card-icon i {
+  font-size: 20px;
+  color: #e00000;
 }
 
 .program-card img {
   width: 100%;
-  height: 180px;
+  height: 160px;
   object-fit: cover;
-  border-radius: 8px;
-  margin-bottom: 15px;
+  transition: transform 0.4s ease;
+}
+
+.program-card:hover img {
+  transform: scale(1.05);
+}
+
+.card-content {
+  padding: 20px;
+  text-align: left;
 }
 
 .program-card h3 {
-  font-size: 1.1rem;
-  text-align: center;
-  margin: 10px 0;
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 0 0 12px 0;
+  color: #2c3e50;
+  font-family: "Times New Roman", serif;
 }
 
-.program-card p {
-  font-size: 0.8rem;
-  color: #555;
-  padding-bottom: 10px;
-}
-/* Program description with logo */
-.program-desc {
-  display: flex;
-  align-items: flex-start;
-  gap: 10px;
-  margin-bottom: 1rem;
-}
-
-.desc-logo {
-  width: 35px;   /* adjust logo size */
-  height: auto;
-  margin-top: 3px;
-}
-
-.program-desc p {
-  font-size: 0.95rem;
+.program-description {
+  font-size: 0.85rem;
+  color: #666;
   line-height: 1.5;
-  color: #555;
-  margin: 0;
+  margin-bottom: 15px;
 }
 
-/* Mobile adjustments */
-@media (max-width:768px){
-  /* Reduce ONLY the Immigration Programs main heading on mobile */
-  .immigration-programs .section-title { font-size:1.8rem; }
+.card-content h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 15px 0 10px 0;
+  color: #2c3e50;
+  display: flex;
+  align-items: center;
+  gap: 6px;
 }
 
-
+.card-content h4::before {
+  content: '';
+  width: 3px;
+  height: 16px;
+  background: #e00000;
+  border-radius: 2px;
+}
+/* Features List Styling */
 .features {
   list-style: none;
   padding: 0;
-  margin: 10px 0;
+  margin: 10px 0 15px 0;
 }
 
 .features li {
-  font-size: 16px;
-  color: #333;
-  margin-bottom: 15px;
+  font-size: 0.8rem;
+  color: #444;
+  margin-bottom: 8px;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
+  padding: 6px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.features li:last-child {
+  border-bottom: none;
 }
 
 .features i {
-  color: #e63946;
-  margin-right: 10px;
-  font-size: 18px;
+  color: #e00000;
+  margin-right: 12px;
+  font-size: 16px;
+  margin-top: 2px;
+  flex-shrink: 0;
 }
-
 
 .extra-feature {
   display: none;
 }
 
 .toggle-features {
-  display: block;
-  margin-top: 5px;
-  font-size: 0.8rem;
-  color: red;
+  display: inline-block;
+  margin-top: 10px;
+  font-size: 0.85rem;
+  color: #e00000;
   cursor: pointer;
-  text-decoration: underline;
-  text-align: center;
-  font-style: italic;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 5px 12px;
+  border: 1px solid #e00000;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+  background: transparent;
 }
 
 .toggle-features:hover {
-  color: rgb(14, 110, 227);
-}
-.requirements {
-  border: 1px solid black;
-  padding: 15px;
-  margin-top: 15px;
-  border-radius: 8px;
-  background: #fff;
+  background: #e00000;
+  color: white;
+  transform: translateY(-1px);
 }
 
-.requirements h4 {
-  margin-bottom: 12px;
-  font-size: .8rem;
-  font-weight: bold;
+/* Requirements Section */
+.requirements {
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  border: 1px solid #e00000;
+  border-radius: 10px;
+  padding: 15px;
+  margin-top: 15px;
+  position: relative;
+}
+
+.requirements::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #e00000 0%, #ff6b6b 100%);
+  border-radius: 10px 10px 0 0;
+}
+
+.requirements-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  gap: 8px;
+}
+
+.requirements-header i {
+  color: #e00000;
+  font-size: 1rem;
+}
+
+.requirements-header h4 {
+  margin: 0;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #2c3e50;
   font-family: 'Times New Roman', Times, serif;
 }
 
 .requirement-item {
-  display: flex;
-  align-items: center;
+  background: rgba(255, 255, 255, 0.8);
   border-radius: 6px;
-  padding: 10px;
-  margin-bottom: 10px;
-  background: #f9f9f9;
-}
-
-.requirement-item i {
-  color: #000;
-  margin-right: 10px;
-  font-size: 1.1rem;
+  padding: 12px;
+  margin-bottom: 0;
+  border-left: 3px solid #e00000;
 }
 
 .requirement-item p {  
-  font-size: 0.7rem;
-  padding-left: 1px;
+  font-size: 0.8rem;
+  line-height: 1.4;
+  color: #555;
+  margin: 0;
+}
+
+/* Mobile adjustments */
+@media (max-width:768px){
+  .immigration-programs .section-title { 
+    font-size: 1.7rem; 
+  }
+  
+  .programs-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .program-card {
+    margin: 0 5px;
+  }
+  
+  .card-content {
+    padding: 15px;
+  }
+  
+  .immigration-programs .section-description {
+    font-size: 0.9rem;
+    margin-bottom: 30px;
+  }
+  
+  .program-card img {
+    height: 140px;
+  }
+  
+  .program-card h3 {
+    font-size: 1.1rem;
+  }
 }
 
 .benefits {
@@ -828,11 +988,13 @@ body { font-family: "Times New Roman", serif; }
   text-align: justify;  
 }
 
-/* Scroll Animation Styles */
+/* ========== SCROLL ANIMATIONS ========== */
+
+/* Main section animations */
 .animate-section {
   opacity: 0;
   transform: translateY(50px);
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .animate-section.animate-in {
@@ -840,26 +1002,34 @@ body { font-family: "Times New Roman", serif; }
   transform: translateY(0);
 }
 
-/* Animation for program cards */
-.program-card {
-  opacity: 1;
-  transform: translateY(0);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+/* Enhanced program card animations */
+.animate-card {
+  opacity: 0;
+  transform: translateY(30px) scale(0.95);
+  transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
+.animate-card.animate-in {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* Staggered delays for program cards */
+.animate-card:nth-child(1) { transition-delay: 0.1s; }
+.animate-card:nth-child(2) { transition-delay: 0.3s; }
+.animate-card:nth-child(3) { transition-delay: 0.5s; }
+
+/* Legacy program card support */
 .program-card.animate-ready {
   opacity: 0;
   transform: translateY(40px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
 .program-card.animate-in {
   opacity: 1;
   transform: translateY(0);
 }
-
-.program-card:nth-child(1) { transition-delay: 0.1s; }
-.program-card:nth-child(2) { transition-delay: 0.2s; }
-.program-card:nth-child(3) { transition-delay: 0.3s; }
 
 /* Animation for benefit cards */
 .benefit-card {
@@ -894,17 +1064,25 @@ body { font-family: "Times New Roman", serif; }
 
 <!-- JavaScript -->
 <script>
-// Scroll Animation System
+// Enhanced Scroll Animation System
 (function() {
   const observerOptions = {
-    threshold: 0.15,
-    rootMargin: '0px 0px -80px 0px'
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
   };
 
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('animate-in');
+        
+        // For sections with animate-card, add staggered animations
+        const cards = entry.target.querySelectorAll('.animate-card');
+        cards.forEach((card, index) => {
+          setTimeout(() => {
+            card.classList.add('animate-in');
+          }, index * 200); // 200ms delay between each card
+        });
       }
     });
   }, observerOptions);
@@ -917,9 +1095,9 @@ body { font-family: "Times New Roman", serif; }
       observer.observe(section);
     });
 
-    // Animate program cards with staggered effect
-    const programCards = document.querySelectorAll('.program-card');
-    programCards.forEach(card => {
+    // Animate individual cards that might not be in sections
+    const animateCards = document.querySelectorAll('.animate-card');
+    animateCards.forEach(card => {
       card.classList.add('animate-ready');
       observer.observe(card);
     });
@@ -948,21 +1126,27 @@ document.addEventListener('DOMContentLoaded', function(){
     navToggle.addEventListener('click', ()=> mainNav.classList.toggle('active'));
   }
 });
-// Existing feature toggle code
+// Fixed feature toggle code - only show extra features when expanded
 document.querySelectorAll(".toggle-features").forEach(link => {
   link.addEventListener("click", function(e) {
     e.preventDefault();
     const card = this.closest(".program-card");
     const extras = card.querySelectorAll(".extra-feature");
 
-    extras.forEach(f => f.classList.toggle("hidden"));
-
     if (this.textContent.includes("+")) {
+      // Show extra features
+      extras.forEach(f => {
+        f.classList.remove("hidden");
+        f.style.display = "flex";
+      });
       this.textContent = "Show Less";
-      extras.forEach(f => f.style.display = "list-item");
     } else {
+      // Hide extra features
+      extras.forEach(f => {
+        f.classList.add("hidden");
+        f.style.display = "none";
+      });
       this.textContent = "+2 more features";
-      extras.forEach(f => f.style.display = "none");
     }
   });
 });

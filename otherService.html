@@ -40,7 +40,7 @@
     </div>
   </header>
 
-  <section class="legal-pr">
+  <section class="legal-pr animate-section">
   <div class="legal-pr-container">
     <!-- Left Side -->
     <div class="legal-pr-left">
@@ -74,7 +74,7 @@
   </div>
 </section>
 
-<section class="advisory-section">
+<section class="advisory-section animate-section">
   <div class="container">
     <p class="sub-heading">OTHER SERVICES</p>
     <h2 class="main-heading">Notary Public Services</h2>
@@ -84,63 +84,63 @@
 
     <div class="services">
       <!-- Service Card 1 -->
-      <div class="service-card">
+      <div class="service-card animate-card">
         <h3>University degrees & Transcripts</h3>
         <img src="images/university.jpg" alt="Notarization Services">
         <p>Certification of academic documents for international use, including university degrees, diplomas, and certificates.
             <br>We ensure your academic documents are legally recognized across borders, with notary, attestation, and legalization services.</p>        
       </div>
       <!-- Service Card 2 -->
-      <div class="service-card">
+      <div class="service-card animate-card">
         <h3>Passport, ID Documents</h3>
         <img src="images/passport.webp" alt="Notarization Services">
         <p>Certification of identity documents for legal, travel, or residency purposes.</p>        
       </div>
       <!-- Service Card 3 -->
-      <div class="service-card">
+      <div class="service-card animate-card">
         <h3>Company Documents</h3>
         <img src="images/document.jpg" alt="Notarization Services">
         <p>Business setup and registration in Dubai, U.A.E and Qatar with full legal support and compliance assistance.<br>
             Authentication of corporate and commercial records for official submissions.        
       </div>
       <!-- Service Card 4 -->
-      <div class="service-card">
+      <div class="service-card animate-card">
         <h3>Tenancy Aggrements</h3>
         <img src="images/tenancy.webp" alt="Notarization Services">
         <p>Certified verification of property and tenancy documentation.</p>        
       </div>
       <!-- Service Card 5 -->
-      <div class="service-card">
+      <div class="service-card animate-card">
         <h3>Consent Letters for Minor Traveling</h3>
         <img src="images/minortravel.jpg" alt="Notarization Services">
         <p>Legally notarized consent for children traveling domestically or internationally.</p>
       </div>
       <!-- Service Card 6 -->
-      <div class="service-card">
+      <div class="service-card animate-card">
         <h3>Utility Bills</h3>
         <img src="images/utility.jpg" alt="Notarization Services">
         <p>Official certification of utility statements and financial records.</p>        
       </div>
       <!-- Service Card 7 -->
-      <div class="service-card">
+      <div class="service-card animate-card">
         <h3>Bank Statements</h3>
         <img src="images/bakstatement.jpg" alt="Notarization Services">
         <p>Official certification of bank statements and financial records.</p>        
       </div>
       <!-- Service Card 8 -->
-      <div class="service-card">
+      <div class="service-card animate-card">
         <h3>Witnessing of Affidavits</h3>
         <img src="images/affid.webp" alt="Notarization Services">
         <p>Witnessing of affidavits for legal, travel, or residency purposes.</p>        
       </div>
       <!-- Service Card 9 -->
-      <div class="service-card">
+      <div class="service-card animate-card">
         <h3>Witnessing of Statutory Declarations</h3>
         <img src="images/statutary.webp" alt="Notarization Services">
         <p>Witnessing of statutory declarations for legal, travel, or residency purposes.</p>        
       </div>
       <!-- Service Card 10 -->
-      <div class="service-card">
+      <div class="service-card animate-card">
         <h3>Driving Licenses</h3>
         <img src="images/driving licens.jpg" alt="Notarization Services">
         <p>Certification of driving licenses for legal, travel, or residency purposes.</p>        
@@ -151,7 +151,7 @@
 
       
 
-<section class="legal-pr">
+<section class="legal-pr animate-section">
   <div class="legal-pr-container">
     <!-- Left Side -->
     <div class="legal-pr-left">
@@ -178,7 +178,7 @@
   </div>
 </section>
 
-<section class="footer-section">
+<section class="footer-section animate-section">
 
 <footer class="footer">
   <div class="footer-container">
@@ -508,9 +508,9 @@ body { font-family: "Times New Roman", serif; }
   font-style: italic;
 }
 
-/* ✅ Special rule: last card centered if alone in row */
+/* ✅ Special rule: last card aligned to left if alone in row */
 .services .service-card:last-child:nth-child(3n+1) {
-  grid-column: 2; /* place it in the middle column */
+  grid-column: 1; /* place it in the first column (left side) */
 }
 
 /* Mobile: show 2 cards per row in advisory-section */
@@ -619,12 +619,91 @@ body { font-family: "Times New Roman", serif; }
   text-align: justify;  
 }
 
+/* ========== SCROLL ANIMATIONS ========== */
 
+/* Initial state - elements are hidden and translated down */
+.animate-section {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.animate-card {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Animate sections with staggered delays for cards */
+.animate-section:nth-child(1) .animate-card:nth-child(1) { transition-delay: 0.1s; }
+.animate-section:nth-child(1) .animate-card:nth-child(2) { transition-delay: 0.2s; }
+.animate-section:nth-child(1) .animate-card:nth-child(3) { transition-delay: 0.3s; }
+.animate-section:nth-child(2) .animate-card:nth-child(4) { transition-delay: 0.1s; }
+.animate-section:nth-child(2) .animate-card:nth-child(5) { transition-delay: 0.2s; }
+.animate-section:nth-child(2) .animate-card:nth-child(6) { transition-delay: 0.3s; }
+.animate-section:nth-child(3) .animate-card:nth-child(7) { transition-delay: 0.1s; }
+.animate-section:nth-child(3) .animate-card:nth-child(8) { transition-delay: 0.2s; }
+.animate-section:nth-child(3) .animate-card:nth-child(9) { transition-delay: 0.3s; }
+.animate-section:nth-child(4) .animate-card:nth-child(10) { transition-delay: 0.1s; }
+
+/* Staggered animation delays for service cards */
+.services .animate-card:nth-child(1) { transition-delay: 0.1s; }
+.services .animate-card:nth-child(2) { transition-delay: 0.2s; }
+.services .animate-card:nth-child(3) { transition-delay: 0.3s; }
+.services .animate-card:nth-child(4) { transition-delay: 0.4s; }
+.services .animate-card:nth-child(5) { transition-delay: 0.5s; }
+.services .animate-card:nth-child(6) { transition-delay: 0.6s; }
+.services .animate-card:nth-child(7) { transition-delay: 0.7s; }
+.services .animate-card:nth-child(8) { transition-delay: 0.8s; }
+.services .animate-card:nth-child(9) { transition-delay: 0.9s; }
+.services .animate-card:nth-child(10) { transition-delay: 1.0s; }
+
+/* Visible state - elements slide up and fade in */
+.animate-section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.animate-card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Additional hover enhancement for animated cards */
+.animate-card.visible:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Mobile responsiveness for animations */
+@media (max-width: 768px) {
+  .animate-section {
+    transform: translateY(30px);
+    transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+  
+  .animate-card {
+    transform: translateY(20px);
+    transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+  
+  /* Reduce delays on mobile for faster loading feeling */
+  .services .animate-card:nth-child(n) {
+    transition-delay: 0.1s;
+  }
+  .services .animate-card:nth-child(2n) {
+    transition-delay: 0.2s;
+  }
+  .services .animate-card:nth-child(3n) {
+    transition-delay: 0.3s;
+  }
+}
 
 </style>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <script>
 document.addEventListener('DOMContentLoaded', function(){
+  // Navigation toggle functionality
   const toggle = document.querySelector('.nav-toggle');
   const nav = document.querySelector('.main-nav');
   if(toggle && nav){
@@ -633,6 +712,62 @@ document.addEventListener('DOMContentLoaded', function(){
       const expanded = toggle.getAttribute('aria-expanded') === 'true';
       toggle.setAttribute('aria-expanded', (!expanded).toString());
     });
+  }
+
+  // ========== SCROLL ANIMATIONS ==========
+  
+  // Intersection Observer for scroll animations
+  const observerOptions = {
+    threshold: 0.1, // Trigger when 10% of element is visible
+    rootMargin: '0px 0px -50px 0px' // Trigger slightly before element is fully in view
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        
+        // For sections with cards, animate cards with staggered delay
+        const cards = entry.target.querySelectorAll('.animate-card');
+        cards.forEach((card, index) => {
+          setTimeout(() => {
+            card.classList.add('visible');
+          }, index * 150); // 150ms delay between each card
+        });
+      }
+    });
+  }, observerOptions);
+
+  // Observe all sections with animation classes
+  const animateElements = document.querySelectorAll('.animate-section');
+  animateElements.forEach(element => {
+    observer.observe(element);
+  });
+
+  // Also observe individual cards that might not be in sections
+  const animateCards = document.querySelectorAll('.animate-card');
+  animateCards.forEach(card => {
+    observer.observe(card);
+  });
+
+  // ========== ENHANCED SCROLL EFFECTS ==========
+  
+  // Add smooth scroll behavior for better UX
+  document.documentElement.style.scrollBehavior = 'smooth';
+
+  // ========== PERFORMANCE OPTIMIZATION ==========
+  
+  // Reduce motion for users who prefer it
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    const style = document.createElement('style');
+    style.textContent = `
+      .animate-section,
+      .animate-card {
+        transition-duration: 0.1s !important;
+        transform: none !important;
+      }
+    `;
+    document.head.appendChild(style);
   }
 });
 </script>
