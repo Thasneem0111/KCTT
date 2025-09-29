@@ -86,7 +86,7 @@
             </div>
             <h3>Portugal</h3>
             <p style="color: #000;">Residency by investment starting from EUR 200,000 in low population areas; visa-free travel within the Schengen Zone.</p>
-            <a href="./Residency Investment/portugal.html">Click to learn more</a>
+            <a href="./Residency Investment/portugal.html">——— Click to learn more ———</a>
         </div>
         
         <div class="program">
@@ -95,7 +95,7 @@
             </div>
             <h3>Greece</h3>
             <p style="color: #000;">Residency by investment starting from EUR 250,000; 5-year renewable PR with family inclusion, no stay requirement, and eligibility for citizenship after 7 years.</p>
-            <a href="./Residency Investment/greece.html">Click to learn more</a>
+            <a href="./Residency Investment/greece.html">——— Click to learn more ———</a>
         </div>    
                 
         
@@ -363,8 +363,7 @@ body.has-fixed-headers { padding-top: var(--fixed-headers-height, 140px); }
   width: 100px;
   height: 2px;
   background: red;
-  margin: 15px 0;
-  margin-left: 500px;
+  margin: 15px auto 0; /* centered underline */
 }
 
 .content p {
@@ -661,13 +660,13 @@ p {
 .programs-container {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+  justify-content: space-between; /* default; overridden for residency programs */
     gap: 30px;
     margin-top: 40px;
 }
 
 .citizenship-programs .program {
-    flex: 0 0 calc(50% - 15px); /* 2 items per row with gap */
+  flex: 0 0 calc(50% - 15px); /* default mobile/tablet before desktop override */
     text-align: left;
     padding: 20px;
     border: 1px solid #eee;
@@ -679,20 +678,22 @@ p {
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     transform: translateY(-3px);
 }
+
 .citizenship-programs .program h3 {
-    font-size: 1.5rem;
+    font-size: 1rem;
     margin-bottom: 15px;
     text-align: center;
 }
 
 .citizenship-programs .program p {
-    line-height: 1.6;
+    line-height: 1.3;
     margin-bottom: 20px;
     text-align: center;
+    font-size: 0.8rem;
 }
 
 .citizenship-programs .program a {
-    color: #0066cc;
+    color: #929292;
     text-decoration: none;
     font-weight: bold;
     display: block;
@@ -700,7 +701,7 @@ p {
     
 }
 .citizenship-programs .program a:hover {
-    color: #004499;
+    color: #990000;
 }
 
 /* Responsive: Stack on mobile */
@@ -828,6 +829,12 @@ p {
   .residency-planning .residency-item { text-align: left; }
   .residency-planning .residency-item h2,
   .residency-planning .residency-item p { text-align: left; }
+}
+
+/* Center the two program boxes (desktop) */
+@media (min-width: 769px) {
+  .citizenship-programs .programs-container { justify-content:center; gap:40px; max-width:1200px; margin-left:300px; margin-right:auto; }
+  .citizenship-programs .program { flex:0 0 500px; max-width:500px; }
 }
 
 </style>
