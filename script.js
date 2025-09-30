@@ -5,7 +5,7 @@ const heroSlides = [
   { title: 'Canada Permanent Residency', image: 'images/canada.jpg' },
   { title: 'Legal Services For Canadian Expats', image: 'images/legal.jpg' },
   { title: 'Real Estate Investment Advisory Services', image: 'images/realestate.webp' },
-  { title: 'Other Services', image: 'images/services.jpg' }
+  { title: 'Other Services', image: 'images/affid1.jpg' }
 ];
 
 const heroTitle = document.getElementById('heroTitle');
@@ -71,7 +71,7 @@ function transitionToSlide(nextIndex) {
   setTimeout(() => {
     outgoing.classList.remove('is-leaving');
     outgoing.classList.add('is-idle');
-  }, 1300); // slightly longer than CSS transition
+  }, 900); // slightly longer than CSS transition
 
   heroTitle.textContent = nextData.title;
   setActiveNav(nextIndex);
@@ -85,7 +85,7 @@ function nextHeroSlide() {
 
 function startHeroAuto() {
   if (heroIntervalId) clearInterval(heroIntervalId);
-  heroIntervalId = setInterval(nextHeroSlide, 5000);
+  heroIntervalId = setInterval(nextHeroSlide, 2500);
 }
 
 navLinks.forEach(link => {
