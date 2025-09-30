@@ -257,7 +257,7 @@
   </div>
 </section>
 
-<section class="canada-pr">
+<section class="canada-pr canada-pr--consult">
   <div class="canada-pr-container">
     <!-- Left Side -->
     <div class="canada-pr-left">
@@ -266,6 +266,7 @@
         <h5 class="sub-heading">LET US HELP YOU</h5>
         <h2 class="main-heading">To know more about our Canada permanent residency services, please schedule a consultation with us.</h2>
         <div class="red-line"></div>
+        <img src="images/hand.jpg" alt="Canada City View with Flag" class="mobile-inline-hero">
         <p>
           KCTT assists international clients in obtaining residence and citizenship under the respective programs. Contact us to arrange an initial private consultation.
         </p>        
@@ -716,8 +717,12 @@ body { font-family: "Times New Roman", serif; }
   flex-shrink: 0;
 }
 
-.extra-feature {
-  display: none;
+.extra-feature.hidden {
+  display: none !important;
+}
+
+.extra-feature:not(.hidden) {
+  display: flex !important;
 }
 
 .toggle-features {
@@ -758,7 +763,6 @@ body { font-family: "Times New Roman", serif; }
   left: 0;
   right: 0;
   height: 2px;
-  background: linear-gradient(90deg, #e00000 0%, #ff6b6b 100%);
   border-radius: 10px 10px 0 0;
 }
 
@@ -888,7 +892,7 @@ body { font-family: "Times New Roman", serif; }
 
 /* Mobile adjustments for Benefits section */
 @media (max-width:768px){
-  .benefits .section-title { font-size:1.6rem; }
+  .benefits .section-title { font-size:1.3rem; }
   .benefits-grid { grid-template-columns:repeat(2, 1fr); }
   .benefit-card:hover { transform:none; box-shadow:#000}
 }
@@ -1138,14 +1142,12 @@ document.querySelectorAll(".toggle-features").forEach(link => {
       // Show extra features
       extras.forEach(f => {
         f.classList.remove("hidden");
-        f.style.display = "flex";
       });
       this.textContent = "Show Less";
     } else {
       // Hide extra features
       extras.forEach(f => {
         f.classList.add("hidden");
-        f.style.display = "none";
       });
       this.textContent = "+2 more features";
     }

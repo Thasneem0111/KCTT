@@ -1411,7 +1411,7 @@ body {
   }
   /* Center the short underline below the heading on mobile */
   .services-left h2::after {
-    left: 50%;
+    left: 10%;
     transform: translateX(-50%);
   }
   /* Justify paragraph text for better edge alignment on small screens */
@@ -1921,6 +1921,7 @@ body {
   padding: 0;
   margin-bottom: 30px;
   line-height: 1.5;
+  font-size: 1rem;
 }
 
 .schedule-list li {
@@ -1970,7 +1971,7 @@ body {
     grid-template-columns: 1fr;
     text-align: center;
   }
-  .schedule-content h2 { font-size: clamp(1.7rem, 5vw, 2.1rem); }
+  .schedule-content h2 { font-size: clamp(1.6rem, 5vw, 2.1rem); }
   .schedule-section { padding: 46px 28px; }
 }
 

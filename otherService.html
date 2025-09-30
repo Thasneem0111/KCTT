@@ -325,7 +325,7 @@ body { font-family: "Times New Roman", serif; }
   /* Hide side image column entirely; we use inline image below red line */
   .legal-pr-right { display:none !important; }
   .vertical-line { display:none; }
-  .legal-pr .main-heading { font-size:1.35rem; line-height:1.3; }
+  .legal-pr .main-heading { font-size:1.3rem; line-height:1.3; }
   .btn-apply { font-size:0.75rem; }
   /* Show inline hero image for all legal-pr sections */
   .mobile-inline-hero { display:block; }
@@ -448,7 +448,7 @@ body { font-family: "Times New Roman", serif; }
 .advisory-section .sub-heading {
   color: #d6252a;
   font-weight: bold;
-  font-size: 14px;
+  font-size: 12px;
   letter-spacing: 1px;
   margin-bottom: 10px;
 }
@@ -475,7 +475,7 @@ body { font-family: "Times New Roman", serif; }
   background-color: #f9f9f9;
   border-radius: 8px;
   padding: 20px;
-  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  transition: box-shadow 0.15s ease, transform 0.15s ease;
   display: flex;
   flex-direction: column;
 }
@@ -516,6 +516,7 @@ body { font-family: "Times New Roman", serif; }
 
 /* Mobile: show 2 cards per row in advisory-section */
 @media (max-width:768px){
+  .advisory-section .main-heading { font-size: 1.3rem; }
   .advisory-section .services { grid-template-columns: repeat(2, 1fr); }
   /* Override special centering rule for 3-col layout */
   .advisory-section .services .service-card:last-child:nth-child(3n+1){ grid-column:auto; }
