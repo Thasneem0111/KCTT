@@ -524,14 +524,14 @@ body {
   justify-content: center;
   align-items: center;
   min-width: 400px;
-  padding: 35px;
+  padding: 30px;
 }
 
 /* EXPERIENCE ROTATING ORBIT SYSTEM */
 .circle {
   position: relative;
-  width: 320px;
-  height: 320px;
+  width: 340px;
+  height: 340px;
   border-radius: 50%;
   display: flex;
   justify-content: center;
@@ -577,8 +577,8 @@ body {
   border-radius: 50%;
   padding: 6px; /* thickness of luminous ring */
   background: conic-gradient(from 0deg, #b6271a, #af0101, #bc2626);
-  -webkit-mask: radial-gradient(circle at 60% 60%, transparent 63%, black 64%);
-  mask: radial-gradient(circle at 50% 50%, transparent 68%, black 64%);
+  -webkit-mask: radial-gradient(circle at 50% 50%, transparent 63%, black 64%);
+  mask: radial-gradient(circle at 50% 50%, transparent 63%, black 64%);
   filter: blur(2px) brightness(1.05) saturate(1.1);
   animation: ringSpin 18s linear infinite;
   opacity: .85;
@@ -598,8 +598,8 @@ body {
 
 .circle .center {
   position: relative;
-  width: 150px;
-  height: 150px;
+  width: 140px;
+  height: 140px;
   border-radius: 50%;
   background: linear-gradient(145deg,#ffffff,#d9e4ef);
   box-shadow: 0 4px 18px -4px rgba(0,0,0,0.45), 0 0 0 6px rgba(255,255,255,0.08);
@@ -608,7 +608,7 @@ body {
   font-weight: 700;
   text-align: center;
   line-height: 1.15;
-  padding-top: 42px;
+  padding-top: 34px;
   letter-spacing: .5px;
   z-index: 3; /* above orbits */
 }
@@ -825,8 +825,8 @@ body {
     /* Reduce intensive effects on small screens for better performance */
   }
   .circle .center { 
-    width: 150px; 
-    height: 150px; 
+    width: 120px; 
+    height: 120px; 
     font-size: 26px; 
     padding-top: 28px; 
   }

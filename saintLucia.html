@@ -48,6 +48,17 @@
     </div>
   </header>
 
+  <!-- Breadcrumb Navigation -->
+  <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+    <div class="breadcrumb-container">
+      <a href="citizenship.html" class="breadcrumb-link">CITIZENSHIP</a>
+      <span class="breadcrumb-separator">|</span>
+      <span class="breadcrumb-current">SAINT LUCIA</span>
+      <span class="breadcrumb-separator">|</span>
+      <span class="breadcrumb-current">CITIZENSHIP BY INVESTMENT</span>
+    </div>
+  </nav>
+
   <section class="canada-pr">
   <div class="canada-pr-container">
     <!-- Left Side -->
@@ -289,6 +300,63 @@ body.has-fixed-headers { padding-top: var(--fixed-headers-height); }
 
 /* Mobile inline hero images hidden by default */
 .mobile-inline-hero { display:none; width:100%; height:auto; margin:14px 0 18px; border-radius:6px; }
+
+
+
+.breadcrumb-nav {
+  background: rgba(255, 255, 255, 0.95);
+  padding: 8px 0;
+  border-bottom: 1px solid #e0e0e0;
+  position: relative;
+  z-index: 100;
+  margin-top: 0;
+}    
+.breadcrumb-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  font-weight: 500;
+  color: #666;
+  font-family: "Times New Roman", serif;
+}
+.breadcrumb-link {
+  color: #0b6ea8;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  cursor: pointer;
+}
+.breadcrumb-link:hover {
+  color: #cc2e2e;
+  text-decoration: underline;
+}
+.breadcrumb-separator {
+  color: #999;
+  margin: 0 4px;
+}
+.breadcrumb-current {
+  color: #333;
+}
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .breadcrumb-nav {
+    padding: 6px 0;
+  }
+  
+  .breadcrumb-container {
+    padding: 0 15px;
+    font-size: 11px;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  
+  .breadcrumb-separator {
+    margin: 0 2px;
+  }
+}
 
 .canada-pr {
   padding: 50px 10%;
