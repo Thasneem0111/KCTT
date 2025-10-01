@@ -112,7 +112,7 @@ body {
   align-items: center;
 }
 .main-nav a {
-  font-family: "Times New Roman", serif;
+  font-family: sans-serif;
   font-size: 11px; /* reduced for better fit */
   text-decoration: none;
   color: #333;
@@ -524,14 +524,14 @@ body {
   justify-content: center;
   align-items: center;
   min-width: 400px;
-  padding: 30px;
+  padding: 35px;
 }
 
 /* EXPERIENCE ROTATING ORBIT SYSTEM */
 .circle {
   position: relative;
-  width: 340px;
-  height: 340px;
+  width: 320px;
+  height: 320px;
   border-radius: 50%;
   display: flex;
   justify-content: center;
@@ -577,8 +577,8 @@ body {
   border-radius: 50%;
   padding: 6px; /* thickness of luminous ring */
   background: conic-gradient(from 0deg, #b6271a, #af0101, #bc2626);
-  -webkit-mask: radial-gradient(circle at 50% 50%, transparent 63%, black 64%);
-  mask: radial-gradient(circle at 50% 50%, transparent 63%, black 64%);
+  -webkit-mask: radial-gradient(circle at 60% 60%, transparent 63%, black 64%);
+  mask: radial-gradient(circle at 50% 50%, transparent 68%, black 64%);
   filter: blur(2px) brightness(1.05) saturate(1.1);
   animation: ringSpin 18s linear infinite;
   opacity: .85;
@@ -598,8 +598,8 @@ body {
 
 .circle .center {
   position: relative;
-  width: 140px;
-  height: 140px;
+  width: 150px;
+  height: 150px;
   border-radius: 50%;
   background: linear-gradient(145deg,#ffffff,#d9e4ef);
   box-shadow: 0 4px 18px -4px rgba(0,0,0,0.45), 0 0 0 6px rgba(255,255,255,0.08);
@@ -608,7 +608,7 @@ body {
   font-weight: 700;
   text-align: center;
   line-height: 1.15;
-  padding-top: 34px;
+  padding-top: 42px;
   letter-spacing: .5px;
   z-index: 3; /* above orbits */
 }
@@ -825,8 +825,8 @@ body {
     /* Reduce intensive effects on small screens for better performance */
   }
   .circle .center { 
-    width: 120px; 
-    height: 120px; 
+    width: 150px; 
+    height: 150px; 
     font-size: 26px; 
     padding-top: 28px; 
   }

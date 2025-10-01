@@ -70,7 +70,12 @@ body.has-fixed-headers { padding-top: var(--fixed-headers-height, 140px); }
   text-decoration: none;
   color: #333;
   position: relative;
+  font-family: sans-serif;
 }
+.main-nav a.active::after {
+  content: none !important; /* remove underline */
+}
+.main-nav a.active { color:#e00000; font-weight:600; }
 
 /* HERO SECTION FULLSCREEN & RESPONSIVE */
 .hero {
