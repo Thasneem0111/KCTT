@@ -72,7 +72,7 @@
   <div class="red-line"></div>
   <!-- Mobile inline image (shown only on small screens) -->
   <img src="images/sainKittsNature.webp" alt="Saint Kitts & Nevis" class="mobile-inline-hero" />
-        <p style="text-align: justify;">
+        <p style="text-align: justify,;">
           Investing in Saint Kitts & Nevis entitles you and your family to obtain citizenship
           and enjoy all the rights and benefits of its passport. No visit or residency is required,
           and the passport provides visa-free or visa-on-arrival access to over 157 countries, 
@@ -260,17 +260,15 @@ body { font-family: "Times New Roman", serif; }
 .main-header {
   background: #fff;
   border-bottom: 1px solid #ddd;
-  position: fixed; /* fixed so global script can offset below top bar consistently */  
+  position: sticky;   /* fixed to work with top-bar offset script */
   top: 0;            
   left: 0;
   right: 0;
   z-index: 1000;     
 }
-.nav-toggle { display:none; } /* hide hamburger on desktop */
-body.has-fixed-headers { padding-top: var(--fixed-headers-height); }
 
 .header-inner {
-  max-width: 1100px;
+  max-width: 1200px;
   margin: auto;
   display: flex;
   align-items: center;
@@ -280,40 +278,57 @@ body.has-fixed-headers { padding-top: var(--fixed-headers-height); }
 .logo-img { height: 50px; }
 .main-nav ul {
   list-style: none;
-  display: flex;
   gap: 20px;
 }
+@media (min-width: 769px) { .main-nav ul { display:flex; } }
+@media (max-width: 768px) { .main-nav ul { display:none; } .main-nav.active ul { display:flex; flex-direction:column; } }
 .main-nav a {
-  font-size: 14px; /* reduced */
-  text-decoration: none;
-  color: #333;
-  position: relative;
+  font-size:10px;
+  text-decoration:none;
+  color:#333;
+  font-family:sans-serif;
+  position:relative;
 }
+
+.main-nav a.active { color:#e00000; font-weight:400; }
+.main-nav a.active::after { content:none !important; }
+.main-nav a:hover { color:#e00000;}
+
 .main-nav a.active::after {
   content: "";
   position: absolute;
   bottom: -4px;
   left: 0; right: 0;
   height: 2px;
-  background: #e8534a;
   margin: auto;
   width: 100%;
 }
+@media (max-width: 768px) { .main-nav a.active::after { display:none; } }
+
+/* Minimal mobile overrides rely on global styles */
+@media (max-width: 768px) {
+  .header-inner { position: relative; }
+  .nav-toggle { display: inline-flex; align-items: center; justify-content: center; background: transparent; border: none; font-size: 30px; color: #333; cursor: pointer; z-index: 1200; padding:4px 6px; }
+}
+
+@media (min-width: 769px) {
+  .nav-toggle { display: none; }
+}
+
 
 /* Mobile inline hero images default hidden (shown via media query) */
 .mobile-inline-hero { display:none; width:100%; height:auto; margin:14px 0 18px; border-radius:6px; }
 
 .breadcrumb-nav {
   background: rgba(255, 255, 255, 0.95);
-  padding: 8px 0;
-  border-bottom: 1px solid #e0e0e0;
+  padding-top:38px ;
   position: relative;
   z-index: 100;
   margin-top: 0;
 }    
 .breadcrumb-container {
   max-width: 1100px;
-  margin: 0 auto;
+  margin: 0 auto;  
   padding: 0 20px;
   display: flex;
   align-items: center;
@@ -420,9 +435,10 @@ body.has-fixed-headers { padding-top: var(--fixed-headers-height); }
   margin-left: 500px;
 }
 .content p {
-  margin-bottom: 15px;
+  margin-bottom: 12px;
   color: #333;
   line-height: 1.6;
+  font-size: 14px;
 }
 
 .btn-apply {
@@ -654,14 +670,14 @@ body.has-fixed-headers { padding-top: var(--fixed-headers-height); }
 .ci-feature h3{
   margin: 8px 0 10px;
   font-family: "Playfair Display", serif;
-  font-size: 28px;
+  font-size: 24px;
   color: #222;
   font-weight: 600;
 }
 .ci-feature p{
   margin: 0;
   color: var(--muted);
-  font-size: 15px;
+  font-size: 12px;
   line-height: 1.7;
 }
 

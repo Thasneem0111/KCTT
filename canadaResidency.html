@@ -55,13 +55,13 @@
         <h2 class="main-heading">Your Pathway to Canadian Permanent Residency</h2>
         <div class="red-line"></div>
         <img src="images/canCity.jpg" alt="Citizenship program flags" class="mobile-inline-hero">
-        <p>
+        <p style="font-size: 14px;">
           Canada offers multiple pathways to permanent residency, each designed
           to attract skilled workers, entrepreneurs, students, and families. Our
           expert team guides you through the entire process, from initial
           assessment to successful landing in Canada.
         </p>
-        <p>
+        <p style="font-size: 14px;">
           Whether you’re a skilled professional, international student,
           entrepreneur, or have family in Canada, we provide comprehensive
           immigration services tailored to your unique situation. Our success
@@ -366,7 +366,7 @@
         <h2 class="main-heading">To know more about our Canada permanent residency services, please schedule a consultation with us.</h2>
         <div class="red-line"></div>
         <img src="images/hand.jpg" alt="Canada City View with Flag" class="mobile-inline-hero">
-        <p>
+        <p style="font-size: 14px;">
           KCTT assists international clients in obtaining residence and citizenship under the respective programs. Contact us to arrange an initial private consultation.
         </p>        
         <a href="contact.html" class="btn-apply">
@@ -471,38 +471,89 @@ body { font-family: "Times New Roman", serif; }
 }
 .phone-icon { color: #0b6ea8; }
 
+@media (min-width: 769px) {
+  .main-header {
+    background: white;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0px; /* Adjust based on top bar height */
+    left: 0;
+    width: 100%;
+    z-index: 1300;
+    padding: 0;
+    
+  }
 
-/* Header */
-.main-header {
-  background: #fff;
-  border-bottom: 1px solid #ddd;
-  position: sticky;   
-  top: 0;            
-  z-index: 1000;     
+  .header-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    height: 70px;
+  }
+
+  .logo-link {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+  }
+
+  .logo-img {
+    height: 50px;
+    width: auto;
+    object-fit: contain;
+  }
+
+  .main-nav {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+  }
+
+  .main-nav ul {
+    display: flex;
+    list-style: none;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .main-nav li {
+    white-space: nowrap;
+  }
+
+  .main-nav a {
+    display: block;
+    padding: 2px 10px;
+    color: #333;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 10px;
+    transition: all 0.3s ease;
+    border-bottom: 3px solid transparent;
+    font-family: sans-serif;
+  }
+
+  .main-nav a:hover {
+    color: #c00;
+  }
+
+  .nav-toggle {
+    display: none;
+  }
 }
 
-.header-inner {
-  max-width: 1100px;
-  margin: auto;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 10px;
-}
+
+
 .logo-img { height: 50px; }
 .main-nav ul {
   list-style: none;
   display: flex;
   gap: 20px;
 }
-.main-nav a {
-  font-size: 12px; /* reduced */
-  text-decoration: none;
-  color: #333;
-  font-family: sans-serif;
-  position: relative;
-}
-.main-nav a.active { color:#e00000; font-weight:600; }
+
+.main-nav a.active { color:#e00000; font-weight:500; }
 /* Remove previous underline effect */
 .main-nav a.active::after { content:none !important; display:none !important; }
 
@@ -515,6 +566,32 @@ body { font-family: "Times New Roman", serif; }
   .main-nav ul li{ width:100%; padding:10px 18px; }
   .main-nav ul li + li{ border-top:1px solid #f1f2f4; }
   .main-nav ul li a{ display:block; width:100%; font-size:0.9rem; color:#222; text-decoration:none; }
+}
+
+/* Override: place hamburger at absolute right on mobile */
+@media (max-width:768px){
+  .header-inner {
+    position: relative;
+    padding-right: 60px; /* space so icon doesn't cover logo */
+  }
+  .nav-toggle {
+    display: block;
+    background: none;
+    border: none;
+    font-size: 1.9rem;
+    line-height: 1;
+    position: absolute;
+    top: 50%;
+    right: 14px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    z-index: 1500;
+    color: #222;
+  }
+  /* Prevent the (hidden) nav from pushing layout */
+  .main-nav {
+    flex: 0 0 auto;
+  }
 }
 
 .canada-pr {
@@ -1164,6 +1241,49 @@ body { font-family: "Times New Roman", serif; }
 .benefit-card:nth-child(9) { transition-delay: 0.5s; }
 .benefit-card:nth-child(10) { transition-delay: 0.55s; }
 
+/* ========== FIXED TOP BAR + HEADER ========== */
+:root {
+  --top-bar-height: 0px;
+  --header-height: 0px;
+  --fixed-total: 0px; /* top-bar + header */
+}
+
+/* Make top bar fixed */
+.top-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1700;
+}
+
+/* Override earlier sticky header: keep always visible under top-bar */
+.main-header {
+  position: fixed !important;
+  top: var(--top-bar-height);
+  left: 0;
+  width: 100%;
+  z-index: 1600;
+  background: #fff;
+}
+
+/* Prevent content from sliding under fixed bars */
+body.padding-offset {
+  padding-top: var(--fixed-total);
+}
+
+/* Mobile menu: place dropdown just under header automatically */
+@media (max-width:768px){
+  .main-nav ul {
+    top: 100% !important; /* directly below fixed header */
+    right: 10px;
+  }
+}
+
+/* (Optional) Desktop dropdown safety if you later add submenus */
+@media (min-width:769px){
+  .main-nav ul { top: 100%; }
+}
 </style>
 
 <!-- JavaScript -->
@@ -1222,35 +1342,70 @@ body { font-family: "Times New Roman", serif; }
   }
 })();
 
-// Mobile nav toggle (mirrors contact.html behavior)
+// Unified mobile nav toggle
 document.addEventListener('DOMContentLoaded', function(){
   const navToggle = document.querySelector('.nav-toggle');
   const mainNav = document.querySelector('.main-nav');
-  if(navToggle && mainNav){
-    navToggle.addEventListener('click', ()=> mainNav.classList.toggle('active'));
-  }
+  if(!navToggle || !mainNav) return;
+
+  navToggle.setAttribute('aria-expanded','false');
+
+  navToggle.addEventListener('click', function(e){
+    e.stopPropagation();
+    mainNav.classList.toggle('active');
+    const icon = navToggle.querySelector('i');
+    if(icon){
+      icon.classList.toggle('fa-bars', !mainNav.classList.contains('active'));
+      icon.classList.toggle('fa-xmark', mainNav.classList.contains('active'));
+    }
+    navToggle.setAttribute('aria-expanded', mainNav.classList.contains('active'));
+  });
+
+  document.addEventListener('click', function(e){
+    if(mainNav.classList.contains('active') && !mainNav.contains(e.target)){
+      mainNav.classList.remove('active');
+      const icon = navToggle.querySelector('i');
+      if(icon){
+        icon.classList.add('fa-bars');
+        icon.classList.remove('fa-xmark');
+      }
+      navToggle.setAttribute('aria-expanded','false');
+    }
+  });
 });
-// Fixed feature toggle code - only show extra features when expanded
+
+// Fixed feature toggle code - unchanged
 document.querySelectorAll(".toggle-features").forEach(link => {
   link.addEventListener("click", function(e) {
     e.preventDefault();
     const card = this.closest(".program-card");
     const extras = card.querySelectorAll(".extra-feature");
-
     if (this.textContent.includes("+")) {
-      // Show extra features
-      extras.forEach(f => {
-        f.classList.remove("hidden");
-      });
+      extras.forEach(f => f.classList.remove("hidden"));
       this.textContent = "Show Less";
     } else {
-      // Hide extra features
-      extras.forEach(f => {
-        f.classList.add("hidden");
-      });
+      extras.forEach(f => f.classList.add("hidden"));
       this.textContent = "+2 more features";
     }
   });
+});
+
+// Compute dynamic heights (top bar + header) and apply offsets
+function setFixedHeights(){
+  const topBar = document.querySelector('.top-bar');
+  const header = document.querySelector('.main-header');
+  const tbH = topBar ? topBar.offsetHeight : 0;
+  const hdH = header ? header.offsetHeight : 0;
+  document.documentElement.style.setProperty('--top-bar-height', tbH + 'px');
+  document.documentElement.style.setProperty('--header-height', hdH + 'px');
+  document.documentElement.style.setProperty('--fixed-total', (tbH + hdH) + 'px');
+  document.body.classList.add('padding-offset');
+}
+
+window.addEventListener('load', setFixedHeights);
+window.addEventListener('resize', () => {
+  clearTimeout(window.__fhTimer);
+  window.__fhTimer = setTimeout(setFixedHeights, 120);
 });
 </script>
 

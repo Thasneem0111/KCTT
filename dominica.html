@@ -68,8 +68,8 @@
   <div class="red-line"></div>
   <!-- Mobile inline image (shown only on small screens) -->
   <img src="images/dominicaNature.jpg" alt="Dominica" class="mobile-inline-hero" />
-        <p style="text-align: justify;">
-          The Commonwealth of Dominica, known as the 'Nature Island of the Caribbean,' 
+        <p style="text-align: justify; font-size: 14px;">
+          The Commonwealth of Dominica, known as the 'Nature Island of the Caribbean, 
           offers a trusted Citizenship by Investment Program established in 1993, with 
           contributions starting from USD 200,000. The program provides investors and their 
           families with citizenship and a passport granting visa-free or visa-on-arrival access 
@@ -147,7 +147,7 @@
   <div class="red-line"></div>
   <!-- Mobile inline image (shown only on small screens) -->
   <img src="images/hand.jpg" alt="Consultation" class="mobile-inline-hero" />
-        <p style="text-align: justify;">
+        <p style="text-align: justify; font-size: 14px;">
           KCTT assists international clients in obtaining residence and citizenship under the respective programs. Contact us to arrange an initial private consultation.
         </p>        
         <a href="contact.html" class="btn-apply">
@@ -278,24 +278,20 @@ body.has-fixed-headers { padding-top: var(--fixed-headers-height); }
 .main-nav ul {
   list-style: none;
   display: flex;
-  gap: 20px;
+  gap: 15px;
 }
 .main-nav a {
-  font-size: 14px; /* reduced */
+  font-size: 10px; /* reduced */
   text-decoration: none;
   color: #333;
   position: relative;
+  font-family: sans-serif;
 }
 .main-nav a.active::after {
-  content: "";
-  position: absolute;
-  bottom: -4px;
-  left: 0; right: 0;
-  height: 2px;
-  background: #e8534a;
-  margin: auto;
-  width: 100%;
+  content:none !important;
 }
+.main-nav a.active { color:#e00000; font-weight:500; }
+.main-nav a:hover { color:#e00000; }
 
 /* Mobile inline images hidden by default */
 .mobile-inline-hero { display:none; width:100%; height:auto; margin:14px 0 18px; border-radius:6px; }
@@ -452,7 +448,7 @@ body.has-fixed-headers { padding-top: var(--fixed-headers-height); }
 
 .canada-pr-right img {
   width: 450px;
-  height: 400px;
+  height: 450px;
   border-radius: 6px;
 }
 

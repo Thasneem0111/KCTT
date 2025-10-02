@@ -55,7 +55,7 @@
   <!-- Mobile inline image (hidden on desktop) -->
   <img src="images/flags.jpg" alt="Citizenship program flags" class="mobile-inline-hero">
         <p>
-          Secure your family’s future with citizenship in some of the world's most desirable 
+          Secure your family's future with citizenship in some of the world's most desirable 
           countries. Our expert team guides you through every step of the investment process, 
           ensuring a smooth and successful application.
         </p>
@@ -327,7 +327,7 @@ body { font-family: "Times New Roman", serif; }
 .main-nav a.active::after {
   content: none !important; /* remove underline */
 }
-.main-nav a.active { color:#e00000; font-weight:600; }
+.main-nav a.active { color:#e00000; font-weight:400; }
 
 /* Ensure desktop layout mirrors index page tweak */
 @media (min-width: 901px) {
@@ -393,7 +393,7 @@ body { font-family: "Times New Roman", serif; }
   height: 2px;
   background: red;
   margin: 15px 0;
-  margin-left: 500px;
+  margin-left: 550px;
 }
 
 .content p {
@@ -668,7 +668,8 @@ p {
     margin-bottom: 10px;
     text-align: center;
     font-family: 'Times New Roman', Times, serif;
-    color: rgb(0, 0, 0);
+    color: #4a90e2;
+    font-weight: bold;
 }
 
 .citizenship-programs h2 {
@@ -740,193 +741,245 @@ p {
     }
 }
 
+/* Desktop Header Styles - Match index.html */
+@media (min-width: 769px) {
+  .main-header {
+    background: white;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    position: fixed;
+    top: 30px; /* Adjust based on top bar height */
+    left: 0;
+    width: 100%;
+    z-index: 1300;
+    padding: 0;
+  }
 
+  .header-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    height: 70px;
+  }
 
+  .logo-link {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+  }
 
+  .logo-img {
+    height: 50px;
+    width: auto;
+    object-fit: contain;
+  }
 
-.footer {
-  background: url("images/footer.jpg") center/cover no-repeat;
-  color: #fff;
-  padding: 50px 20px 20px;
-  font-family: Arial, sans-serif;
-  text-align: justify;
+  .main-nav {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+  }
+
+  .main-nav ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+    gap: 0;
+  }
+
+  .main-nav li {
+    white-space: nowrap;
+  }
+
+  .main-nav a {
+    display: block;
+    padding: 2px 10px;
+    color: #333;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 10px;
+    transition: all 0.3s ease;
+    border-bottom: 3px solid transparent;
+    font-family: sans-serif;
+  }
+
+  .main-nav a:hover {
+    color: #c00;
+  }
+
+  .nav-toggle {
+    display: none;
+  }
 }
 
-/* Footer Grid Layout */
-.footer-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 30px;
+/* Desktop Citizenship Programs - Match index.html */
+@media (min-width: 769px) {
+  .citizenship-programs {
+    padding: 60px 20px;
+    text-align: center;
+    background: #f8f9fa;
+    max-width: none;
+    margin: 0;
+  }
+
+  .citizenship-programs h1 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: #4a90e2;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+  }
+
+  .programs-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 0;
+  }
+
+  .citizenship-programs .program {
+    flex: 0 0 calc(33.333% - 20px);
+    min-width: 300px;
+    background: white;
+    border-radius: 10px;
+    padding: 30px 20px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+    border: 1px solid #eee;
+  }
+
+  .citizenship-programs .program:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  }
+
+  .program-image {
+    width: 50px;
+    height: 50px;
+    margin: 0 auto 20px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid #c00;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .program-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .citizenship-programs .program h3 {
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 15px;
+    font-weight: 600;
+    text-align: center;
+  }
+
+  .citizenship-programs .program p {
+    color: #666 !important;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 12px;
+  }
+
+  .citizenship-programs .program a {
+    color: rgb(108, 104, 104);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 12px;
+    transition: color 0.3s ease;
+    display: block;
+    text-align: center;
+  }
+
+  .citizenship-programs .program a:hover {
+    color: #a00;
+  }
 }
 
-/* Section Titles */
-.footer h3 {
-  font-size: 18px;
-  font-weight: 600;
-  margin-bottom: 15px;
-  color: #fff;
-  text-align: left;
-}
-
-/* Paragraphs, Links, and List Items */
-.footer p{
-  font-size: 14px;
-  line-height: 1.6;
-  color: #dcdcdc;
-  margin-bottom: 15px;
-  text-align: left;
-}
-
-.footer a,
-.footer li {
-  font-size: 14px;
-  line-height: 1.6;
-  color: #dcdcdc;
-  text-decoration: none;
-  list-style: none;
-  transition: color 0.3s ease;
-}
-
-/* Hover effect for links */
-.footer a:hover {
-  color: #ffffff;
-}
-
-/* Contact Info Styling */
-.contact-info {
-  display: flex;
-  align-items: flex-start;
-  margin-bottom: 12px;
-  font-size: 14px;
-}
-
-.contact-info i {
-  margin-right: 8px;
-  font-style: normal;
-}
-
-/* Footer Bottom Section */
-.footer-bottom {
-  text-align: center;
-  margin-top: 35px;
-  padding-top: 15px;
-  font-size: 13px;
-  color: #b5b5b5;
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
-}
-/* Footer List Styling */
-.footer ul {
-  padding: 0;
-  margin: 0;
-}
-
-.footer ul li {
-  margin-bottom: 8px;
-  text-align: justify;  
-}
-
-/* Nav responsiveness handled in shared styles.css; page keeps minimal list reset only. */
-
-/* Mobile re-order: show image/right section first, then text/left section for canada-pr blocks */
+/* Add this mobile-only CSS to your existing <style> section */
 @media (max-width: 768px) {
   .canada-pr-container {
     flex-direction: column;
-    flex-wrap: nowrap;
-    align-items: center;
-    gap: 28px;
   }
-  .canada-pr-right, .canada-pr-left { width: 100%; }
-  .canada-pr-right { order: 1; }
-  .canada-pr-left { order: 2; }
-  .canada-pr-right img { width: 100%; height: auto; display: block; }
-  /* Simplify left block styling on mobile */
-  .canada-pr-left { display: block; }
-  .vertical-line { display: none; }
-  .main-heading { font-size: 1.2rem; line-height: 1.3; }
-  .btn-apply { font-size: 0.75rem; }
-  /* Show inline hero image only on mobile for FIRST canada-pr section */
-  .mobile-inline-hero { display:block; width:100%; border-radius:10px; margin:12px 0 14px; }
-  .canada-pr:first-of-type .canada-pr-right { display:none; }
-  /* Hide right image in consultation section on mobile so only inline image shows */
-  .canada-pr--consult .canada-pr-right { display:none; }
+  
+  .canada-pr-left {
+    order: 1;
+  }
+  
+  .canada-pr-right {
+    display: none; /* Hide the right side image on mobile */
+  }
+  
+  .mobile-inline-hero {
+    display: block !important;
+    width: 100%;
+    max-width: 350px;
+    border-radius: 8px;
+    margin: 15px auto;
+  }
+  
+  /* Reorder content within canada-pr-left */
+  .content {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .content .sub-heading {
+    order: 1;
+  }
+  
+  .content .main-heading {
+    order: 2;
+  }
+  
+  .content .red-line {
+    order: 3;
+  }
+  
+  .content .mobile-inline-hero {
+    order: 4;
+  }
+  
+  .content p {
+    order: 5;
+  }
+  
+  .content .btn-apply {
+    order: 6;
+  }
+  
+  .citizenship-programs h1::after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 2px;
+    background: #c00;
+    margin: 10px auto 20px;
+  }
+  
+  .residency-planning h1::after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 2px;
+    background: #c00;
+    margin: 10px auto 20px;
+  }
 }
-
-/* Mobile-specific alignment for residency planning items */
-@media (max-width: 768px) {
-  .residency-planning .residency-item { text-align: left; }
-  .residency-planning .residency-item h2,
-  .residency-planning .residency-item p { text-align: left; }
-}
-
-/* Residency Planning heading adjustments */
-.residency-planning { position: relative; padding-top: 30px; } /* reduce top padding so H1 appears closer to top */
-.residency-planning__inner { position: relative; text-align: left; }
-.residency-planning__title { margin: 0 0 10px; font-size: 1.5rem; } /* tighten space below heading */
-.residency-planning__underline { width:70px; height:3px; background:red; margin:0 0 28px; }
-@media (max-width:768px){
-  .residency-planning { padding-top: 35px; }
-  .residency-planning__title { margin-bottom: 10px; font-size: 1.6rem; }
-  .residency-planning__underline { margin:0 0 24px; }
-}
-
-/* Scroll Animation Styles */
-.animate-section {
-  opacity: 0;
-  transform: translateY(50px);
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-}
-
-.animate-section.animate-in {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Stagger animation for program cards */
-.citizenship-programs .program {
-  opacity: 1; /* visible by default */
-  transform: translateY(0);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-}
-
-.citizenship-programs .program.animate-ready {
-  opacity: 0;
-  transform: translateY(40px);
-}
-
-.citizenship-programs .program.animate-in {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Different delays for staggered effect */
-.citizenship-programs .program:nth-child(1) { transition-delay: 0.1s; }
-.citizenship-programs .program:nth-child(2) { transition-delay: 0.2s; }
-.citizenship-programs .program:nth-child(3) { transition-delay: 0.3s; }
-.citizenship-programs .program:nth-child(4) { transition-delay: 0.4s; }
-.citizenship-programs .program:nth-child(5) { transition-delay: 0.5s; }
-
-/* Smooth animation for residency items */
-.residency-item {
-  opacity: 1; /* visible by default */
-  transform: translateY(0);
-  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
-}
-
-.residency-item.animate-ready {
-  opacity: 0;
-  transform: translateY(30px);
-}
-
-.residency-item.animate-in {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.residency-item:nth-child(1) { transition-delay: 0.1s; }
-.residency-item:nth-child(2) { transition-delay: 0.2s; }
-.residency-item:nth-child(3) { transition-delay: 0.3s; }
 </style>
 
 <!-- JavaScript -->

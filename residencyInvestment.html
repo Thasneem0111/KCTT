@@ -21,13 +21,13 @@
     </div>
   </div>
 
-  <!-- Header with Logo and Menu -->
+  <!-- Header with Logo and Menu (matched to citizenship.html styling) -->
   <header class="main-header">
     <div class="header-inner">
       <a href="index.html" class="logo-link">
         <img src="images/logo.jpeg" alt="Company logo" class="logo-img">
       </a>
-      <nav class="main-nav">
+      <nav class="main-nav" aria-label="Main navigation">
         <ul id="navList">
           <li><a href="index.html" data-index="0">Home</a></li>
           <li><a href="citizenship.html" data-index="1" >Citizenship By Investment</a></li>
@@ -55,7 +55,7 @@
   <!-- Mobile inline image (hidden on desktop) -->
   <img src="images/prgr.jpeg" alt="Citizenship program flags" class="mobile-inline-hero">
         <p>
-          Secure your family’s future with residency in some of the world's most desirable 
+          Secure your family's future with residency in some of the world's most desirable 
           countries. Our expert team guides you through every step of the investment process, 
           ensuring a smooth and successful application.
         </p>
@@ -75,7 +75,7 @@
 <!--  -->
 
 <section class="citizenship-programs">
-    <h1>Top-Tier Residency Programs</h1>
+    <h1>Residency by Investment Programs</h1>
     <div class="red-line1"></div>
    
     
@@ -275,21 +275,20 @@ body { font-family: "Times New Roman", serif; }
   background: #fff;
   border-bottom: 1px solid #ddd;
   position: fixed;
-  top: 0; /* offset adjusted by global script.js */
+  top: 0; /* will be dynamically shifted below top bar */
   left: 0;
   width: 100%;
   z-index: 1300;
   transition: box-shadow .25s ease, background .25s ease;
 }
 .main-header.scrolled { box-shadow: 0 4px 12px -2px rgba(0,0,0,0.12); }
-body.has-fixed-headers { padding-top: var(--fixed-headers-height, 140px); }
 .header-inner {
   max-width: 1100px;
   margin: auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 10px;
+  padding: 10px 10px 10px 0; /* remove left padding so logo hits left edge */
 }
 .logo-img { height: 50px; }
 /* Removed inline .main-nav ul block to rely on shared stylesheet for responsive behavior */
@@ -304,7 +303,12 @@ body.has-fixed-headers { padding-top: var(--fixed-headers-height, 140px); }
 .main-nav a.active::after {
   content: none !important; /* remove underline */
 }
-.main-nav a.active { color:#e00000; font-weight:600; }
+.main-nav a.active { color:#e00000; font-weight:400; }
+
+/* Ensure desktop layout mirrors index page tweak */
+@media (min-width: 901px) {
+  .header-inner { gap: 40px; }
+}
 
 .canada-pr {
   padding: 50px 10%;
@@ -330,7 +334,7 @@ body.has-fixed-headers { padding-top: var(--fixed-headers-height, 140px); }
 .vertical-line {
   width: 5px;              /* a bit thicker */
   background: red;
-  min-height: 55px;       /* fixed height so it’s visible */
+  min-height: 55px;       /* fixed height so it's visible */
   border-radius: 2px;
 }
 
@@ -475,7 +479,6 @@ hr {
   height: 3px;
   background: red;
   margin: 0 auto 40px;
-  
 }
 
 p {
@@ -594,6 +597,7 @@ p {
     margin-top: 40px;
 }
 
+
 .residency-programs .program {
     flex: 0 0 calc(50% - 15px); /* 2 items per row with gap */
     text-align: left;
@@ -615,9 +619,6 @@ p {
     color: #333;
 }
 
-.residency-programs .program a:hover {
-    color: #004499;
-}
 
 /* Responsive design */
 @media (max-width: 768px) {
@@ -639,8 +640,9 @@ p {
     margin-bottom: 10px;
     text-align: center;
     font-family: 'Times New Roman', Times, serif;
-    color: rgb(0, 0, 0);
+    color: rgb(4, 97, 148);
 }
+
 
 .citizenship-programs h2 {
     font-size: 1.5rem;
@@ -649,6 +651,7 @@ p {
     font-family: 'Times New Roman', Times, serif;
     font-weight: normal;
 }
+
 
 .citizenship-programs hr {
     border: none;
@@ -703,6 +706,7 @@ p {
 }
 .citizenship-programs .program a:hover {
     color: #990000;
+    font-weight: normal;
 }
 
 /* Responsive: Stack on mobile */
@@ -712,9 +716,78 @@ p {
     }
 }
 
+/* Desktop Header Styles - Match citizenship.html */
+@media (min-width: 769px) {
+  .main-header {
+    background: white;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    position: fixed;
+    top: 30px; /* Adjust based on top bar height */
+    left: 0;
+    width: 100%;
+    z-index: 1300;
+    padding: 0;
+  }
 
+  .header-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    height: 70px;
+  }
 
+  .logo-link {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+  }
 
+  .logo-img {
+    height: 50px;
+    width: auto;
+    object-fit: contain;
+  }
+
+  .main-nav {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+  }
+
+  .main-nav ul {
+    display: flex;
+    list-style: none;
+    align-items: center;
+    gap: 0;
+  }
+
+  .main-nav li {
+    white-space: nowrap;
+  }
+
+  .main-nav a {
+    display: block;
+    padding: 2px 10px;
+    color: #333;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 10px;
+    transition: all 0.3s ease;
+    border-bottom: 3px solid transparent;
+    font-family: sans-serif;
+  }
+
+  .main-nav a:hover {
+    color: #c00;
+  }
+
+  .nav-toggle {
+    display: none;
+  }
+}
 
 .footer {
   background: url("images/footer.jpg") center/cover no-repeat;
@@ -834,8 +907,16 @@ p {
 
 /* Center the two program boxes (desktop) */
 @media (min-width: 769px) {
-  .citizenship-programs .programs-container { justify-content:center; gap:40px; max-width:1200px; margin-left:300px; margin-right:auto; }
-  .citizenship-programs .program { flex:0 0 360px; max-width:360px; }
+  .citizenship-programs .programs-container { 
+    justify-content: center; 
+    gap: 40px; 
+    max-width: 800px; 
+    margin: 40px auto 0; 
+  }
+  .citizenship-programs .program { 
+    flex: 0 0 360px; 
+    max-width: 360px; 
+  }
 }
 
 /* Scroll Animation Styles */
@@ -895,6 +976,27 @@ p {
 
 <!-- JavaScript -->
 <script>
+// Keep top bar and header always visible; adjust layout spacing
+(function(){
+  function adjustHeaderOffset(){
+    const topBar = document.querySelector('.top-bar');
+    const header = document.querySelector('.main-header');
+    if(!topBar || !header) return;
+    const topHeight = topBar.offsetHeight;
+    header.style.top = topHeight + 'px';
+    // Add padding so content not hidden
+    document.body.style.paddingTop = (topHeight + header.offsetHeight) + 'px';
+  }
+  window.addEventListener('load', adjustHeaderOffset);
+  window.addEventListener('resize', adjustHeaderOffset);
+  window.addEventListener('orientationchange', adjustHeaderOffset);
+  window.addEventListener('scroll', ()=>{
+    const header = document.querySelector('.main-header');
+    if(!header) return;
+    if(window.scrollY > 10){ header.classList.add('scrolled'); } else { header.classList.remove('scrolled'); }
+  });
+})();
+
 // Scroll Animation System
 (function() {
   const observerOptions = {

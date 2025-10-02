@@ -656,13 +656,13 @@ body { font-family: "Times New Roman", serif; }
 .logo-img { height: 50px; }
 .main-nav ul {
   list-style: none;
-  gap: 20px;
+  gap: 15px;
 }
 /* Ensure correct behavior for nav visibility */
 @media (min-width: 769px) { .main-nav ul { display:flex; } }
 @media (max-width: 768px) { .main-nav ul { display:none; } .main-nav.active ul { display:flex; flex-direction:column; } }
 .main-nav a {
-  font-size: 14px; /* reduced */
+  font-size: 10px; /* reduced */
   text-decoration: none;
   color: #333;
   position: relative;
@@ -673,12 +673,14 @@ body { font-family: "Times New Roman", serif; }
   bottom: -4px;
   left: 0; right: 0;
   height: 2px;
-  background: #e8534a;
   margin: auto;
   width: 100%;
 }
+
 /* Hide active underline in mobile nav */
 @media (max-width: 768px) { .main-nav a.active::after { display: none; } }
+.main-nav a.active { color:#e00000; font-weight:400; }
+.main-nav a:hover { color:#e00000; }
 
 /* Mobile Navigation (delegate behavior to global styles.css) */
 @media (max-width: 768px) {

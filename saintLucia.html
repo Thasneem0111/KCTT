@@ -69,7 +69,7 @@
   <div class="red-line"></div>
   <!-- Mobile inline image (shown only on small screens) -->
   <img src="images/saintluci.webp" alt="Saint Lucia" class="mobile-inline-hero" />
-        <p style="text-align: justify;">
+        <p style="text-align: justify; font-size: 14px;">
           Saint Lucia offers a well-structured Citizenship by Investment Program requiring donations 
           starting from USD 240,000. Successful applicants and their families obtain citizenship and 
           a passport providing visa-free or visa-on-arrival access to over 154 countries, including 
@@ -148,7 +148,7 @@
   <div class="red-line"></div>
   <!-- Mobile inline image (shown only on small screens) -->
   <img src="images/hand.jpg" alt="Consultation" class="mobile-inline-hero" />
-        <p style="text-align: justify;">
+        <p style="text-align: justify; font-size: 14px;">
           KCTT assists international clients in obtaining residence and citizenship under the respective programs. Contact us to arrange an initial private consultation.
         </p>        
         <a href="contact.html" class="btn-apply">
@@ -279,24 +279,20 @@ body.has-fixed-headers { padding-top: var(--fixed-headers-height); }
 .main-nav ul {
   list-style: none;
   display: flex;
-  gap: 20px;
+  gap: 15px;
 }
 .main-nav a {
-  font-size: 14px; /* reduced */
+  font-size: 10px; /* reduced */
   text-decoration: none;
   color: #333;
   position: relative;
+  font-family: sans-serif;
 }
 .main-nav a.active::after {
-  content: "";
-  position: absolute;
-  bottom: -4px;
-  left: 0; right: 0;
-  height: 2px;
-  background: #e8534a;
-  margin: auto;
-  width: 100%;
+  content:none !important;
 }
+.main-nav a.active { color:#e00000; font-weight:500; }
+.main-nav a:hover { color:#e00000; }
 
 /* Mobile inline hero images hidden by default */
 .mobile-inline-hero { display:none; width:100%; height:auto; margin:14px 0 18px; border-radius:6px; }
